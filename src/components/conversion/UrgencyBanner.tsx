@@ -18,19 +18,7 @@ export default function UrgencyBanner() {
   if (!visible) return null;
 
   return (
-    <div style={{
-      position: "fixed",
-      bottom: 90,
-      left: 24,
-      background: "white",
-      padding: "14px 20px",
-      borderRadius: 8,
-      boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-      zIndex: 997,
-      maxWidth: 280,
-      animation: "slideUp 0.5s ease",
-      border: "1px solid var(--sand-d)",
-    }}>
+    <div className="urgency-banner">
       <button
         onClick={() => setVisible(false)}
         style={{

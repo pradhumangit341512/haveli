@@ -32,12 +32,12 @@ export default async function RoomDetailPage({ params }: Props) {
         </p>
       </section>
 
-      <section style={{ background: "var(--cream)", padding: "0 40px" }}>
+      <section className="room-detail-gallery-section">
         <div className="container room-detail-gallery">
-          <Image src={room.images[0].src} alt={room.images[0].alt} width={900} height={600} style={{ width: "100%", height: 400, objectFit: "cover" }} />
+          <Image src={room.images[0].src} alt={room.images[0].alt} width={900} height={600} sizes="(max-width: 1024px) 100vw, 66vw" />
           <div className="room-detail-gallery-side">
             {room.images.slice(1, 3).map((img, i) => (
-              <Image key={i} src={img.src} alt={img.alt} width={450} height={300} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <Image key={i} src={img.src} alt={img.alt} width={450} height={300} sizes="(max-width: 1024px) 50vw, 33vw" />
             ))}
           </div>
         </div>
@@ -59,7 +59,7 @@ export default async function RoomDetailPage({ params }: Props) {
             </ul>
 
             <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 18, color: "var(--maroon-d)", marginTop: 40, marginBottom: 16 }}>All Amenities</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+            <div className="room-detail-amenities-grid">
               {room.amenities.map((a) => (
                 <div key={a} style={{ fontSize: 14, padding: "8px 0", color: "var(--text-m)" }}>
                   <span style={{ color: "var(--gold)", marginRight: 8 }}>&#8226;</span> {a}
@@ -68,7 +68,7 @@ export default async function RoomDetailPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="room-detail-sidebar" style={{ background: "var(--charcoal)", padding: 32 }}>
+          <div className="room-detail-sidebar">
             <p style={{ fontSize: 10, letterSpacing: 4, textTransform: "uppercase", color: "var(--gold)", marginBottom: 8 }}>Starting From</p>
             <div style={{ marginBottom: 24 }}>
               <span style={{ fontFamily: "'Cinzel', serif", fontSize: 36, color: "var(--gold)" }}>&#8377;{room.price.toLocaleString("en-IN")}</span>
@@ -89,7 +89,7 @@ export default async function RoomDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <div style={{ background: "var(--cream)", padding: "0 40px 60px", textAlign: "center" }}>
+      <div className="room-detail-back">
         <Link href="/rooms" style={{ fontSize: 13, color: "var(--gold-d)", letterSpacing: 2, textTransform: "uppercase" }}>&larr; View All Rooms</Link>
       </div>
     </>

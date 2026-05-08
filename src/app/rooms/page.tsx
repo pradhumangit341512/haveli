@@ -30,7 +30,7 @@ export default function RoomsPage() {
               </div>
               <div>
                 <p className="sec-tag">{room.tag}</p>
-                <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 28, color: "var(--maroon-d)", marginBottom: 8 }}>{room.name}</h2>
+                <h2 className="room-listing-name">{room.name}</h2>
                 <p className="room-listing-meta">{room.size} &bull; {room.bedType} &bull; {room.view} &bull; Up to {room.maxGuests} guests</p>
                 <p className="room-listing-desc">{room.shortDescription}</p>
                 <div className="room-listing-amenities">
@@ -38,7 +38,7 @@ export default function RoomsPage() {
                     <span key={a} className="room-listing-amenity">{a}</span>
                   ))}
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+                <div className="room-listing-cta">
                   <div>
                     <span className="room-listing-price">&#8377;{room.price.toLocaleString("en-IN")}</span>
                     <span style={{ fontSize: 13, color: "var(--text-l)" }}> /night</span>

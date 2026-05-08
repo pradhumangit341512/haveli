@@ -37,7 +37,8 @@ export default function Hero() {
           <span className="dot"></span>
         </div>
         <h1>
-          Luxury Heritage Hotel Near <em>Jaipur Airport</em> <br />  The Shekhawat Haveli
+          Luxury Heritage Hotel Near <em>Jaipur Airport</em>
+          <span className="hero-h1-sub">The Shekhawat Haveli</span>
         </h1>
         <p className="hero-desc">
           21 exquisitely crafted royal rooms with rooftop dining overlooking Jaipur Airport and the
