@@ -22,8 +22,8 @@ export default function OffersPage() {
         <div className="container">
           {offers.map((offer) => (
             <div key={offer.slug} className="offer-card">
-              <div style={{ position: "relative" }}>
-                <Image src={offer.image} alt={offer.imageAlt} width={600} height={450} style={{ width: "100%", height: "100%", objectFit: "cover", minHeight: 280 }} />
+              <div className="offer-card-img-wrap">
+                <Image src={offer.image} alt={offer.imageAlt} fill sizes="(max-width: 1024px) 100vw, 45vw" className="offer-card-img" />
                 {offer.badge && (
                   <span style={{ position: "absolute", top: 16, left: 16, background: "var(--maroon)", color: "var(--gold-l)", padding: "6px 16px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontWeight: 600 }}>
                     {offer.badge}

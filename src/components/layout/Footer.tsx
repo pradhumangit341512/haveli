@@ -18,22 +18,23 @@ export default function Footer() {
         <div>
           <h4>Quick Links</h4>
           <ul className="footer-links">
-            <li><a href="#about">About Us</a></li>
+            <li><Link href="/#about">About Us</Link></li>
             <li><Link href="/rooms">Rooms &amp; Suites</Link></li>
             <li><Link href="/offers">Special Offers</Link></li>
             <li><Link href="/gallery">Photo Gallery</Link></li>
             <li><Link href="/blog">Travel Blog</Link></li>
             <li><Link href="/virtual-tour">Virtual Tour</Link></li>
+            <li><Link href="/#faq">FAQ</Link></li>
           </ul>
         </div>
         <div>
           <h4>Services</h4>
           <ul className="footer-links">
-            <li><a href="#contact">Book a Room</a></li>
+            <li><Link href="/#contact">Book a Room</Link></li>
             <li><Link href="/offers#honeymoon-package">Honeymoon Package</Link></li>
             <li><Link href="/offers#wedding-group-deal">Wedding Packages</Link></li>
             <li><Link href="/offers#corporate-long-stay">Corporate Stays</Link></li>
-            <li><a href="#contact">Airport Transfer</a></li>
+            <li><Link href="/#contact">Airport Transfer</Link></li>
           </ul>
         </div>
         <div>

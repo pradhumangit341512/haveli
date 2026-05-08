@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useScrollHeader } from "@/hooks/useScrollHeader";
 import { navLinks } from "@/data/navigation";
-import LanguageSwitcher from "@/components/language/LanguageSwitcher";
 
 export default function Header() {
   const scrolled = useScrollHeader();
@@ -16,14 +15,29 @@ export default function Header() {
   const showSolid = scrolled || !isHome;
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const resolveHref = (href: string) => {
+    if (href.startsWith("#") && !isHome) return `/${href}`;
+    return href;
+  };
+
   const scrollToContact = () => {
+    if (!isHome) {
+      window.location.href = "/#contact";
+      return;
+    }
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleMobileLink = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("#")) {
+      if (!isHome) {
+        window.location.href = `/${href}`;
+        return;
+      }
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -48,22 +62,24 @@ export default function Header() {
             <div className="logo-tag">Luxury Heritage Hotel &bull; Jaipur</div>
           </a>
           <ul className="nav-links">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                {link.href.startsWith("/") ? (
-                  <Link href={link.href} aria-label={link.ariaLabel}>
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a href={link.href} aria-label={link.ariaLabel}>
-                    {link.label}
-                  </a>
-                )}
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const href = resolveHref(link.href);
+              return (
+                <li key={link.href}>
+                  {href.startsWith("/") ? (
+                    <Link href={href} aria-label={link.ariaLabel}>
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={href} aria-label={link.ariaLabel}>
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ul>
           <div className="nav-book">
-            <LanguageSwitcher />
             <span className="nav-phone">
               <a href="tel:+919XXXXXXXXX" style={{ color: "var(--gold-l)" }} aria-label="Call to book">
                 +91 9XXX XXX XXX
@@ -87,18 +103,32 @@ export default function Header() {
       </header>
 
       <div className={`mobile-nav ${mobileOpen ? "open" : ""}`}>
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={(e) => {
-              e.preventDefault();
-              handleMobileLink(link.href);
-            }}
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map((link) => {
+          const href = resolveHref(link.href);
+          if (link.href.startsWith("#")) {
+            return (
+              <a
+                key={link.href}
+                href={href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleMobileLink(link.href);
+                }}
+              >
+                {link.label}
+              </a>
+            );
+          }
+          return (
+            <Link
+              key={link.href}
+              href={href}
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
       </div>
     </>
   );

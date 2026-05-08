@@ -25,8 +25,8 @@ export default function RoomsPage() {
         <div className="container">
           {roomsDetailed.map((room) => (
             <div key={room.slug} className="room-listing">
-              <div>
-                <Image src={room.images[0].src} alt={room.images[0].alt} width={700} height={500} className="room-listing-img" />
+              <div className="room-listing-img-wrap">
+                <Image src={room.images[0].src} alt={room.images[0].alt} fill sizes="(max-width: 1024px) 100vw, 55vw" className="room-listing-img" />
               </div>
               <div>
                 <p className="sec-tag">{room.tag}</p>
