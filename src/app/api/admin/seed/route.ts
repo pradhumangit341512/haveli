@@ -1,17 +1,37 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getCollection } from "@/lib/mongodb";
 import { hashPassword } from "@/lib/auth";
 
-export async function POST() {
+export async function POST(request: NextRequest) {
+  const expected = process.env.SEED_SECRET;
+  if (!expected) {
+    return NextResponse.json(
+      { success: false, error: "SEED_SECRET is not configured on the server" },
+      { status: 500 }
+    );
+  }
+  if (request.headers.get("x-seed-secret") !== expected) {
+    return NextResponse.json({ success: false, error: "Forbidden" }, { status: 403 });
+  }
+
+  const adminUsername = process.env.ADMIN_USERNAME;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminUsername || !adminPassword) {
+    return NextResponse.json(
+      { success: false, error: "ADMIN_USERNAME and ADMIN_PASSWORD must be set" },
+      { status: 500 }
+    );
+  }
+
   try {
     // Seed staff
     const staff = await getCollection("staff");
-    const existingAdmin = await staff.findOne({ username: process.env.ADMIN_USERNAME });
+    const existingAdmin = await staff.findOne({ username: adminUsername });
 
     if (!existingAdmin) {
-      const passwordHash = await hashPassword(process.env.ADMIN_PASSWORD || "admin292002");
+      const passwordHash = await hashPassword(adminPassword);
       await staff.insertOne({
-        username: process.env.ADMIN_USERNAME || "admin0101",
+        username: adminUsername,
         passwordHash,
         name: "Pradhuman Singh",
         role: "owner",
