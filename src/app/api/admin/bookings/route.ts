@@ -45,6 +45,9 @@ export async function GET(request: NextRequest) {
   }
 }
 
+// Statuses that occupy a physical room and therefore must not overlap
+const OCCUPYING_STATUSES = ["confirmed", "checked_in"] as const;
+
 // PATCH /api/admin/bookings — update booking status
 export async function PATCH(request: NextRequest) {
   const auth = authenticateRequest(request);
@@ -57,6 +60,44 @@ export async function PATCH(request: NextRequest) {
     }
 
     const bookings = await getCollection("bookings");
+    const targetId = new ObjectId(id);
+
+    // Conflict check: when promoting to a status that occupies a room,
+    // make sure no other active booking overlaps the same room/dates.
+    if ((OCCUPYING_STATUSES as readonly string[]).includes(status)) {
+      const target = await bookings.findOne({ _id: targetId });
+      if (!target) {
+        return NextResponse.json({ error: "Booking not found" }, { status: 404 });
+      }
+      if (target.roomNumber && target.checkin && target.checkout) {
+        // Overlap rule: existing.checkin < target.checkout AND target.checkin < existing.checkout
+        const conflict = await bookings.findOne({
+          _id: { $ne: targetId },
+          roomNumber: target.roomNumber,
+          status: { $in: OCCUPYING_STATUSES as unknown as string[] },
+          checkin: { $lt: target.checkout },
+          checkout: { $gt: target.checkin },
+        });
+        if (conflict) {
+          return NextResponse.json(
+            {
+              error: "Room conflict",
+              message: `Room ${target.roomNumber} is already booked by ${conflict.name} from ${conflict.checkin} to ${conflict.checkout} (${conflict.status}).`,
+              conflict: {
+                id: conflict._id.toString(),
+                name: conflict.name,
+                roomNumber: conflict.roomNumber,
+                checkin: conflict.checkin,
+                checkout: conflict.checkout,
+                status: conflict.status,
+              },
+            },
+            { status: 409 }
+          );
+        }
+      }
+    }
+
     const updateFields: Record<string, unknown> = {
       status,
       updatedAt: new Date(),
@@ -65,7 +106,7 @@ export async function PATCH(request: NextRequest) {
     if (notes !== undefined) updateFields.notes = notes;
 
     const result = await bookings.findOneAndUpdate(
-      { _id: new ObjectId(id) },
+      { _id: targetId },
       { $set: updateFields },
       { returnDocument: "after" }
     );

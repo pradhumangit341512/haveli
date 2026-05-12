@@ -123,7 +123,17 @@ export default function AdminPage() {
 
   // ─── Actions ───
   const updateBookingStatus = async (id: string, status: string) => {
-    await fetch("/api/admin/bookings", { method: "PATCH", headers: headers(), body: JSON.stringify({ id, status }) });
+    const res = await fetch("/api/admin/bookings", { method: "PATCH", headers: headers(), body: JSON.stringify({ id, status }) });
+    if (res.status === 409) {
+      const data = await res.json();
+      window.alert(data.message || "Room conflict — this room is already booked for those dates.");
+      return;
+    }
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      window.alert(data.error || "Failed to update booking");
+      return;
+    }
     fetchBookings();
     fetchStats();
   };
