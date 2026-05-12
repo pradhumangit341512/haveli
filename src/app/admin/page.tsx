@@ -1,10 +1,67 @@
 "use client";
 
-import { useState, useEffect, useCallback, type FormEvent } from "react";
+import { useState, useEffect, useCallback, type FormEvent, type ReactNode } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
 // ─── Types ───
 interface Booking { _id: string; name: string; phone: string; email: string; checkin: string; checkout: string; room: string; roomNumber: string; guests: string; message: string; status: string; source: string; totalAmount: number; notes: string; createdAt: string; }
+type BookingFormState = {
+  mode: "create" | "edit";
+  id?: string;
+  name: string;
+  phone: string;
+  email: string;
+  checkin: string;
+  checkout: string;
+  room: string;
+  roomNumber: string;
+  guests: string;
+  status: string;
+  source: string;
+  totalAmount: string;
+  message: string;
+  notes: string;
+};
+const ROOM_TYPES = ["Royal Deluxe", "Maharaja Suite", "Family Suite"];
+const SOURCES = ["Direct", "WhatsApp", "Phone", "Walk-in", "MakeMyTrip", "Booking.com", "Airbnb", "Manual"];
+const STATUSES = ["pending", "confirmed", "checked_in", "checked_out", "cancelled"];
+function emptyForm(): BookingFormState {
+  return {
+    mode: "create",
+    name: "",
+    phone: "",
+    email: "",
+    checkin: "",
+    checkout: "",
+    room: ROOM_TYPES[0],
+    roomNumber: "",
+    guests: "2 Adults",
+    status: "pending",
+    source: "Direct",
+    totalAmount: "",
+    message: "",
+    notes: "",
+  };
+}
+function bookingToForm(b: Booking): BookingFormState {
+  return {
+    mode: "edit",
+    id: b._id,
+    name: b.name || "",
+    phone: b.phone || "",
+    email: b.email || "",
+    checkin: b.checkin || "",
+    checkout: b.checkout || "",
+    room: b.room || ROOM_TYPES[0],
+    roomNumber: b.roomNumber || "",
+    guests: b.guests || "",
+    status: b.status || "pending",
+    source: b.source || "Direct",
+    totalAmount: b.totalAmount ? String(b.totalAmount) : "",
+    message: b.message || "",
+    notes: b.notes || "",
+  };
+}
 interface Room { _id: string; number: string; floor: number; type: string; price: number; status: string; housekeeping: string; notes: string; }
 interface Guest { _id: string; name: string; phone: string; email: string; visits: number; totalSpent: number; vip: boolean; lastVisit: string; preferences: string; notes: string; }
 interface Stats { totalBookings: number; pending: number; confirmed: number; checkedIn: number; cancelled: number; totalRooms: number; availableRooms: number; occupiedRooms: number; maintenanceRooms: number; totalGuests: number; todayCheckins: number; todayCheckouts: number; occupancyRate: number; revenue: number; }
@@ -47,6 +104,11 @@ export default function AdminPage() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [seeding, setSeeding] = useState(false);
+
+  // Booking form modal
+  const [bookingForm, setBookingForm] = useState<BookingFormState | null>(null);
+  const [savingBooking, setSavingBooking] = useState(false);
+  const [formError, setFormError] = useState("");
 
   const headers = useCallback(() => ({ "Content-Type": "application/json" }), []);
 
@@ -132,6 +194,72 @@ export default function AdminPage() {
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
       window.alert(data.error || "Failed to update booking");
+      return;
+    }
+    fetchBookings();
+    fetchStats();
+  };
+
+  const saveBooking = async () => {
+    if (!bookingForm) return;
+    setFormError("");
+    const payload = {
+      ...(bookingForm.id ? { id: bookingForm.id } : {}),
+      name: bookingForm.name.trim(),
+      phone: bookingForm.phone.trim(),
+      email: bookingForm.email.trim(),
+      checkin: bookingForm.checkin,
+      checkout: bookingForm.checkout,
+      room: bookingForm.room,
+      roomNumber: bookingForm.roomNumber.trim(),
+      guests: bookingForm.guests.trim(),
+      status: bookingForm.status,
+      source: bookingForm.source,
+      totalAmount: bookingForm.totalAmount ? Number(bookingForm.totalAmount) : 0,
+      message: bookingForm.message.trim(),
+      notes: bookingForm.notes.trim(),
+    };
+    if (!payload.name || !payload.phone || !payload.checkin || !payload.checkout || !payload.room) {
+      setFormError("Name, phone, check-in, check-out and room type are required.");
+      return;
+    }
+    if (payload.checkin >= payload.checkout) {
+      setFormError("Check-out must be after check-in.");
+      return;
+    }
+    setSavingBooking(true);
+    try {
+      const res = await fetch("/api/admin/bookings", {
+        method: bookingForm.mode === "create" ? "POST" : "PATCH",
+        headers: headers(),
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setFormError(data.message || data.error || "Save failed");
+      } else {
+        setBookingForm(null);
+        fetchBookings();
+        fetchStats();
+        fetchGuests();
+      }
+    } catch {
+      setFormError("Network error — please try again.");
+    } finally {
+      setSavingBooking(false);
+    }
+  };
+
+  const deleteBooking = async (id: string, name: string) => {
+    if (!window.confirm(`Delete booking for ${name}? This cannot be undone.`)) return;
+    const res = await fetch("/api/admin/bookings", {
+      method: "DELETE",
+      headers: headers(),
+      body: JSON.stringify({ id }),
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      window.alert(data.error || "Delete failed (owner only).");
       return;
     }
     fetchBookings();
@@ -266,7 +394,7 @@ export default function AdminPage() {
         {/* ════════ BOOKINGS TAB ════════ */}
         {tab === "bookings" && (
           <div>
-            <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap", alignItems: "center" }}>
               <input style={{ ...s.input, maxWidth: 280 }} placeholder="Search name or phone..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               <select style={{ ...s.input, maxWidth: 160 }} value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
                 <option value="all">All Status</option>
@@ -276,6 +404,24 @@ export default function AdminPage() {
                 <option value="checked_out">Checked Out</option>
                 <option value="cancelled">Cancelled</option>
               </select>
+              <button
+                onClick={() => { setFormError(""); setBookingForm(emptyForm()); }}
+                style={{
+                  marginLeft: "auto",
+                  padding: "10px 22px",
+                  background: "var(--gold)",
+                  color: "var(--dark)",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: 12,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 600,
+                }}
+              >
+                + Add Booking
+              </button>
             </div>
             <div style={{ ...s.card, overflow: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -305,11 +451,13 @@ export default function AdminPage() {
                         </span>
                       </td>
                       <td style={{ ...s.td, whiteSpace: "nowrap" }}>
-                        <div style={{ display: "flex", gap: 4 }}>
+                        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
                           {b.status === "pending" && <ActionBtn label="Confirm" color="#27AE60" onClick={() => updateBookingStatus(b._id, "confirmed")} />}
                           {b.status === "confirmed" && <ActionBtn label="Check In" color="#3498DB" onClick={() => updateBookingStatus(b._id, "checked_in")} />}
                           {b.status === "checked_in" && <ActionBtn label="Check Out" color="#9B59B6" onClick={() => updateBookingStatus(b._id, "checked_out")} />}
                           {(b.status === "pending" || b.status === "confirmed") && <ActionBtn label="Cancel" color="#E74C3C" onClick={() => updateBookingStatus(b._id, "cancelled")} />}
+                          <ActionBtn label="Edit" color="#C8A45C" onClick={() => { setFormError(""); setBookingForm(bookingToForm(b)); }} />
+                          <ActionBtn label="Delete" color="#E74C3C" onClick={() => deleteBooking(b._id, b.name)} />
                         </div>
                       </td>
                     </tr>
@@ -467,6 +615,19 @@ export default function AdminPage() {
           </div>
         )}
 
+        {/* ════════ BOOKING FORM MODAL ════════ */}
+        {bookingForm && (
+          <BookingFormModal
+            state={bookingForm}
+            onChange={(patch) => setBookingForm((prev) => (prev ? { ...prev, ...patch } : prev))}
+            onCancel={() => { setBookingForm(null); setFormError(""); }}
+            onSave={saveBooking}
+            saving={savingBooking}
+            error={formError}
+            availableRoomNumbers={rooms.map((r) => r.number).sort()}
+          />
+        )}
+
         {/* ════════ SETTINGS TAB ════════ */}
         {tab === "settings" && (
           <div>
@@ -499,6 +660,150 @@ export default function AdminPage() {
             </div>
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+// ─── Booking form modal ───
+function BookingFormModal({
+  state,
+  onChange,
+  onCancel,
+  onSave,
+  saving,
+  error,
+  availableRoomNumbers,
+}: {
+  state: BookingFormState;
+  onChange: (patch: Partial<BookingFormState>) => void;
+  onCancel: () => void;
+  onSave: () => void;
+  saving: boolean;
+  error: string;
+  availableRoomNumbers: string[];
+}) {
+  const field = (label: string, child: ReactNode) => (
+    <div style={{ marginBottom: 14 }}>
+      <label style={{ display: "block", ...s.label, color: "var(--gold-d)" }}>{label}</label>
+      {child}
+    </div>
+  );
+
+  return (
+    <div
+      onClick={onCancel}
+      style={{
+        position: "fixed",
+        inset: 0,
+        background: "rgba(0,0,0,0.7)",
+        backdropFilter: "blur(2px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 100,
+        padding: 20,
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          ...s.card,
+          width: "min(720px, 100%)",
+          maxHeight: "90vh",
+          overflowY: "auto",
+          padding: 32,
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
+          <h2 style={{ fontFamily: "'Cinzel', serif", color: "var(--gold)", fontSize: 22 }}>
+            {state.mode === "create" ? "New Booking" : "Edit Booking"}
+          </h2>
+          <button onClick={onCancel} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.4)", fontSize: 24, cursor: "pointer", lineHeight: 1 }} aria-label="Close">×</button>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+          {field("Guest Name *", (
+            <input style={s.input} value={state.name} onChange={(e) => onChange({ name: e.target.value })} placeholder="Full name" />
+          ))}
+          {field("Phone *", (
+            <input style={s.input} value={state.phone} onChange={(e) => onChange({ phone: e.target.value })} placeholder="+91 9XXXX XXXXX" />
+          ))}
+          {field("Email", (
+            <input style={s.input} type="email" value={state.email} onChange={(e) => onChange({ email: e.target.value })} placeholder="guest@example.com" />
+          ))}
+          {field("Guests", (
+            <input style={s.input} value={state.guests} onChange={(e) => onChange({ guests: e.target.value })} placeholder="2 Adults + 1 Child" />
+          ))}
+          {field("Check-in *", (
+            <input style={s.input} type="date" value={state.checkin} onChange={(e) => onChange({ checkin: e.target.value })} />
+          ))}
+          {field("Check-out *", (
+            <input style={s.input} type="date" value={state.checkout} onChange={(e) => onChange({ checkout: e.target.value })} />
+          ))}
+          {field("Room Type *", (
+            <select style={s.input} value={state.room} onChange={(e) => onChange({ room: e.target.value })}>
+              {ROOM_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
+            </select>
+          ))}
+          {field("Room Number", (
+            <>
+              <input
+                style={s.input}
+                list="room-numbers-datalist"
+                value={state.roomNumber}
+                onChange={(e) => onChange({ roomNumber: e.target.value })}
+                placeholder="e.g. 101"
+              />
+              <datalist id="room-numbers-datalist">
+                {availableRoomNumbers.map((n) => <option key={n} value={n} />)}
+              </datalist>
+            </>
+          ))}
+          {field("Status", (
+            <select style={s.input} value={state.status} onChange={(e) => onChange({ status: e.target.value })}>
+              {STATUSES.map((st) => <option key={st} value={st}>{st.replace("_", " ")}</option>)}
+            </select>
+          ))}
+          {field("Source", (
+            <select style={s.input} value={state.source} onChange={(e) => onChange({ source: e.target.value })}>
+              {SOURCES.map((src) => <option key={src} value={src}>{src}</option>)}
+            </select>
+          ))}
+          {field("Total Amount (₹)", (
+            <input style={s.input} type="number" min={0} value={state.totalAmount} onChange={(e) => onChange({ totalAmount: e.target.value })} placeholder="10000" />
+          ))}
+        </div>
+
+        <div style={{ gridColumn: "1 / -1" }}>
+          {field("Guest Message", (
+            <textarea style={{ ...s.input, minHeight: 60, resize: "vertical", fontFamily: "'DM Sans', sans-serif" }} value={state.message} onChange={(e) => onChange({ message: e.target.value })} placeholder="Airport pickup, dietary preferences, etc." />
+          ))}
+          {field("Internal Notes", (
+            <textarea style={{ ...s.input, minHeight: 60, resize: "vertical", fontFamily: "'DM Sans', sans-serif" }} value={state.notes} onChange={(e) => onChange({ notes: e.target.value })} placeholder="VIP, repeat guest, follow-up reminders…" />
+          ))}
+        </div>
+
+        {error && (
+          <p style={{ color: "#E74C3C", fontSize: 13, marginBottom: 12, padding: "10px 14px", background: "rgba(231,76,60,0.1)", border: "1px solid rgba(231,76,60,0.3)" }}>{error}</p>
+        )}
+
+        <div style={{ display: "flex", gap: 12, justifyContent: "flex-end", marginTop: 16 }}>
+          <button
+            onClick={onCancel}
+            disabled={saving}
+            style={{ padding: "10px 22px", background: "transparent", border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.6)", cursor: "pointer", fontSize: 12, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Cancel
+          </button>
+          <button
+            onClick={onSave}
+            disabled={saving}
+            style={{ padding: "10px 32px", background: "var(--gold)", border: "none", color: "var(--dark)", cursor: saving ? "not-allowed" : "pointer", opacity: saving ? 0.6 : 1, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}
+          >
+            {saving ? "Saving…" : state.mode === "create" ? "Create Booking" : "Save Changes"}
+          </button>
+        </div>
       </div>
     </div>
   );
