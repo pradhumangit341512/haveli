@@ -11,7 +11,7 @@ export default function VirtualTourPage() {
   const tourSpots = [
     { name: "Grand Lobby", image: "https://images.unsplash.com/photo-1632558036346-500cfd0f711b?w=800&q=85", description: "Step into the hand-carved entrance of our five-story haveli" },
     { name: "Royal Deluxe Room", image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=85", description: "Experience the room with Rajasthani murals and city views" },
-    { name: "Maharaja Suite", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=85", description: "Our signature suite with private jacuzzi and airport views" },
+    { name: "Royal Premium Room", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=85", description: "Comfortable king room with contemporary styling and airport views" },
     { name: "Rooftop Restaurant", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=85", description: "Dine under the stars with panoramic Aravalli views" },
     { name: "Banquet Hall", image: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800&q=85", description: "Elegant space for weddings, events, and celebrations" },
     { name: "Hotel Exterior", image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=85", description: "The five-story haveli facade and landscaped entrance" },

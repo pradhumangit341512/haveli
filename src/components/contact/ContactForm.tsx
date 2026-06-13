@@ -114,9 +114,8 @@ export default function ContactForm() {
         <div className="form-group">
           <label htmlFor="froom">Room Type</label>
           <select id="froom" name="room">
-            <option value="Royal Deluxe">Royal Deluxe &mdash; Rs 5,000/night</option>
-            <option value="Maharaja Suite">Maharaja Heritage Suite &mdash; Rs 8,000</option>
-            <option value="Family Suite">Rajputana Family Suite &mdash; Rs 10,000</option>
+            <option value="Royal Deluxe">Royal Deluxe Room &mdash; Rs 4,000/night</option>
+            <option value="Royal Premium">Royal Premium Room &mdash; Rs 3,000/night</option>
             <option value="Wedding Group">Wedding Group Booking</option>
             <option value="Corporate">Corporate / Long Stay</option>
           </select>

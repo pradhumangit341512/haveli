@@ -7,7 +7,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: "What is the room rate at The Ummed Haveli?",
-    answer: "Room rates start from Rs 5,000 per night for the Royal Deluxe Room. The Maharaja Heritage Suite starts at Rs 8,000 and the Rajputana Family Suite from Rs 10,000. All rates include complimentary breakfast, Wi-Fi, and airport transfer.",
+    answer: "Room rates start from Rs 3,000 per night for the Royal Premium Room and Rs 4,000 for the Royal Deluxe Room. All rates include complimentary breakfast, Wi-Fi, and airport transfer.",
   },
   {
     question: "Does The Ummed Haveli have a rooftop restaurant?",

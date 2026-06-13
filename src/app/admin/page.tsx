@@ -22,7 +22,7 @@ type BookingFormState = {
   message: string;
   notes: string;
 };
-const ROOM_TYPES = ["Royal Deluxe", "Maharaja Suite", "Family Suite"];
+const ROOM_TYPES = ["Royal Deluxe", "Royal Premium"];
 const SOURCES = ["Direct", "WhatsApp", "Phone", "Walk-in", "MakeMyTrip", "Booking.com", "Airbnb", "Manual"];
 const STATUSES = ["pending", "confirmed", "checked_in", "checked_out", "cancelled"];
 function emptyForm(): BookingFormState {

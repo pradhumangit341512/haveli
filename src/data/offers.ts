@@ -18,13 +18,13 @@ export const offers: Offer[] = [
   {
     slug: "honeymoon-package",
     title: "Royal Honeymoon Package",
-    subtitle: "3 Nights in Maharaja Heritage Suite",
-    description: "Begin your forever in a suite fit for royalty. Our honeymoon package includes the Maharaja Heritage Suite with private jacuzzi, candlelit rooftop dinner, couples spa, and a surprise Rajasthani welcome ceremony.",
+    subtitle: "3 Nights in Royal Deluxe Room",
+    description: "Begin your forever in a room fit for royalty. Our honeymoon package includes the Royal Deluxe Room with candlelit rooftop dinner, couples spa, and a surprise Rajasthani welcome ceremony.",
     price: "Rs 28,000",
     originalPrice: "Rs 36,000",
     discount: "Save 22%",
     includes: [
-      "3 nights in Maharaja Heritage Suite",
+      "3 nights in Royal Deluxe Room",
       "Daily breakfast for two",
       "One candlelit rooftop dinner",
       "Room decorated with flowers & candles",

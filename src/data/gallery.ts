@@ -8,8 +8,8 @@ export interface GalleryImage {
 export const galleryImages: GalleryImage[] = [
   // Rooms
   { src: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=85", alt: "Royal Deluxe Room with king bed and Rajasthani decor", category: "rooms", caption: "Royal Deluxe Room" },
-  { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=85", alt: "Maharaja Heritage Suite living area with luxury furnishings", category: "rooms", caption: "Maharaja Heritage Suite" },
-  { src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=85", alt: "Rajputana Family Suite spacious bedroom", category: "rooms", caption: "Rajputana Family Suite" },
+  { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=85", alt: "Royal Premium Room with king bed and airport view", category: "rooms", caption: "Royal Premium Room" },
+  { src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=85", alt: "Royal Deluxe Room spacious bedroom with Rajasthani decor", category: "rooms", caption: "Royal Deluxe Room" },
   { src: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&q=85", alt: "Premium room bathroom with marble finishing", category: "rooms", caption: "Marble-Clad Bathroom" },
 
   // Dining

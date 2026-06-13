@@ -73,9 +73,8 @@ export default function BookingBar() {
         <div className="booking-field">
           <label htmlFor="bRoom">Room Type</label>
           <select id="bRoom" aria-label="Room type">
-            <option>Royal Deluxe</option>
-            <option>Maharaja Suite</option>
-            <option>Rajputana Family Suite</option>
+            <option>Royal Deluxe Room</option>
+            <option>Royal Premium Room</option>
           </select>
         </div>
         <button className="booking-btn" onClick={scrollToContact} aria-label="Check room availability">

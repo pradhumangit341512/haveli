@@ -5,7 +5,7 @@ import { roomsDetailed } from "@/data/rooms-detailed";
 
 export const metadata: Metadata = {
   title: "Luxury Rooms & Suites | The Ummed Haveli Jaipur",
-  description: "Explore our 21 luxury rooms and suites at The Ummed Haveli. Royal Deluxe Rooms from Rs 5,000/night, Maharaja Heritage Suites, and Rajputana Family Suites.",
+  description: "Explore our luxury rooms at The Ummed Haveli. Royal Premium Rooms from Rs 3,000/night and Royal Deluxe Rooms from Rs 4,000/night, with complimentary breakfast, Wi-Fi, and airport transfer.",
 };
 
 export default function RoomsPage() {
