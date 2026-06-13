@@ -310,7 +310,7 @@ export default function AdminPage() {
       <div style={{ minHeight: "100vh", background: "var(--dark)", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ width: 380, padding: 40, ...s.card }}>
           <h1 style={{ fontFamily: "'Cinzel', serif", color: "var(--gold)", fontSize: 22, textAlign: "center", marginBottom: 8 }}>Admin Panel</h1>
-          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", textAlign: "center", marginBottom: 32 }}>The Shekhawat Haveli</p>
+          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", textAlign: "center", marginBottom: 32 }}>The Ummed Haveli</p>
           <form onSubmit={handleLogin}>
             <div style={{ marginBottom: 16 }}>
               <label style={{ display: "block", ...s.label, color: "var(--gold)" }}>Username</label>
@@ -357,7 +357,7 @@ export default function AdminPage() {
     <div style={{ minHeight: "100vh", background: "var(--dark)" }}>
       {/* Top Bar */}
       <div style={{ background: "var(--charcoal)", padding: "12px 32px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(200,164,92,0.15)" }}>
-        <div style={{ fontFamily: "'Cinzel', serif", color: "var(--gold)", fontSize: 16 }}>Shekhawat Haveli Admin</div>
+        <div style={{ fontFamily: "'Cinzel', serif", color: "var(--gold)", fontSize: 16 }}>Ummed Haveli Admin</div>
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {stats && <span style={{ fontSize: 11, color: "rgba(255,255,255,0.3)" }}>Today: {stats.todayCheckins} in / {stats.todayCheckouts} out</span>}
           <button onClick={() => { fetch("/api/auth/logout", { method: "POST" }).then(() => setIsAuthenticated(false)); }} style={{ background: "none", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.5)", padding: "5px 14px", fontSize: 11, cursor: "pointer", fontFamily: "'DM Sans'" }}>Logout</button>

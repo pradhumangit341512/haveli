@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return {};
   return {
-    title: `${post.title} | The Shekhawat Haveli Blog`,
+    title: `${post.title} | The Ummed Haveli Blog`,
     description: post.excerpt,
   };
 }
@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
               Ready to Experience Jaipur?
             </p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", marginBottom: 20 }}>
-              Book your stay at The Shekhawat Haveli &mdash; just 2 km from Jaipur Airport
+              Book your stay at The Ummed Haveli &mdash; just 2 km from Jaipur Airport
             </p>
             <Link href="/#contact" className="btn-gold" style={{ display: "inline-block" }}>
               Book Now &mdash; From &#8377;5,000/night

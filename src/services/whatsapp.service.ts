@@ -1,10 +1,10 @@
 import type { BookingFormData } from "@/types";
 
-const WHATSAPP_NUMBER = "919XXXXXXXXX";
+const WHATSAPP_NUMBER = "917296812341";
 
 export function buildWhatsAppBookingUrl(data: BookingFormData): string {
   const message = [
-    "*Booking Request — The Shekhawat Haveli*",
+    "*Booking Request — The Ummed Haveli*",
     "",
     `Name: ${data.name}`,
     `Phone: ${data.phone}`,
@@ -19,6 +19,6 @@ export function buildWhatsAppBookingUrl(data: BookingFormData): string {
 }
 
 export function getWhatsAppChatUrl(): string {
-  const text = "Hi, I would like to book a room at The Shekhawat Haveli Jaipur";
+  const text = "Hi, I would like to book a room at The Ummed Haveli Jaipur";
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }

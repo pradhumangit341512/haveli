@@ -19,7 +19,7 @@ export const galleryImages: GalleryImage[] = [
   { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=85", alt: "Chef preparing traditional Rajasthani dishes", category: "dining", caption: "Live Kitchen" },
 
   // Exterior
-  { src: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=85", alt: "Heritage architecture of The Shekhawat Haveli exterior", category: "exterior", caption: "Haveli Facade" },
+  { src: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=85", alt: "Heritage architecture of The Ummed Haveli exterior", category: "exterior", caption: "Haveli Facade" },
   { src: "https://images.unsplash.com/photo-1632558036346-500cfd0f711b?w=800&q=85", alt: "Traditional Rajasthani archway entrance", category: "exterior", caption: "Grand Entrance" },
   { src: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=85", alt: "Heritage building with Jaipur Pink City architecture", category: "exterior", caption: "Heritage Architecture" },
   { src: "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=800&q=85", alt: "Hotel exterior garden and landscaping", category: "exterior", caption: "Landscaped Gardens" },
@@ -31,7 +31,7 @@ export const galleryImages: GalleryImage[] = [
   { src: "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?w=800&q=85", alt: "Amber Fort sightseeing tour arranged by hotel", category: "experiences", caption: "Amber Fort Tour" },
 
   // Weddings
-  { src: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800&q=85", alt: "Wedding decoration at The Shekhawat Haveli banquet", category: "weddings", caption: "Wedding Decor" },
+  { src: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800&q=85", alt: "Wedding decoration at The Ummed Haveli banquet", category: "weddings", caption: "Wedding Decor" },
   { src: "https://images.unsplash.com/photo-1610024062303-e355e94c7a8c?w=800&q=85", alt: "Wedding reception setup with traditional theme", category: "weddings", caption: "Wedding Reception" },
   { src: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=85", alt: "Sangeet night celebration on rooftop", category: "weddings", caption: "Sangeet Night" },
   { src: "https://images.unsplash.com/photo-1554787388-9194e4eb57a3?w=800&q=85", alt: "Mehendi ceremony decorations and setup", category: "weddings", caption: "Mehendi Ceremony" },

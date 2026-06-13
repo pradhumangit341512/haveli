@@ -18,7 +18,7 @@ export default function Loading() {
         letterSpacing: 8,
         animation: "pulse 1.5s ease-in-out infinite",
       }}>
-        The Shekhawat Haveli
+        The Ummed Haveli
       </h2>
       <p style={{
         color: "var(--gold-d)",

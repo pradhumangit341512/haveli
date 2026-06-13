@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const room = roomsDetailed.find((r) => r.slug === slug);
   if (!room) return {};
-  return { title: `${room.name} | The Shekhawat Haveli Jaipur`, description: room.shortDescription };
+  return { title: `${room.name} | The Ummed Haveli Jaipur`, description: room.shortDescription };
 }
 
 export default async function RoomDetailPage({ params }: Props) {

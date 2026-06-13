@@ -4,7 +4,7 @@ import Link from "next/link";
 import { offers } from "@/data/offers";
 
 export const metadata: Metadata = {
-  title: "Special Offers & Packages | The Shekhawat Haveli Jaipur",
+  title: "Special Offers & Packages | The Ummed Haveli Jaipur",
   description: "Exclusive deals: Honeymoon packages, wedding group rates, corporate stays, and weekend getaways.",
 };
 

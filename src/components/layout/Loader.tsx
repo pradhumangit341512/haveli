@@ -8,7 +8,7 @@ export default function Loader() {
   return (
     <div id="loader" className={hidden ? "hide" : ""}>
       <h2>
-        <span>The</span> <span>Shekhawat</span> <span>Haveli</span>
+        <span>The</span> <span>Ummed</span> <span>Haveli</span>
       </h2>
       <p>Jaipur &bull; Rajasthan</p>
     </div>

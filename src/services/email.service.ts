@@ -23,13 +23,13 @@ export async function sendBookingNotification(data: BookingEmailData): Promise<v
   if (!to) return;
 
   await transporter.sendMail({
-    from: `"The Shekhawat Haveli" <${process.env.GMAIL_USER}>`,
+    from: `"The Ummed Haveli" <${process.env.GMAIL_USER}>`,
     to,
     subject: `New Booking Request — ${data.guestName} (${data.room})`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: #5C1A2A; padding: 20px; text-align: center;">
-          <h1 style="color: #C8A45C; font-size: 20px; margin: 0;">The Shekhawat Haveli</h1>
+          <h1 style="color: #C8A45C; font-size: 20px; margin: 0;">The Ummed Haveli</h1>
           <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin: 4px 0 0;">New Booking Request</p>
         </div>
         <div style="padding: 24px; background: #f9f9f9;">
@@ -58,19 +58,19 @@ export async function sendBookingConfirmation(
   if (!guestEmail) return;
 
   await transporter.sendMail({
-    from: `"The Shekhawat Haveli" <${process.env.GMAIL_USER}>`,
+    from: `"The Ummed Haveli" <${process.env.GMAIL_USER}>`,
     to: guestEmail,
-    subject: `Booking Confirmed — The Shekhawat Haveli, Jaipur`,
+    subject: `Booking Confirmed — The Ummed Haveli, Jaipur`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: #5C1A2A; padding: 24px; text-align: center;">
-          <h1 style="color: #C8A45C; font-size: 22px; margin: 0;">The Shekhawat Haveli</h1>
+          <h1 style="color: #C8A45C; font-size: 22px; margin: 0;">The Ummed Haveli</h1>
           <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin: 4px 0 0;">Luxury Heritage Hotel • Jaipur</p>
         </div>
         <div style="padding: 24px; background: white;">
           <h2 style="color: #5C1A2A; font-size: 18px;">Booking Confirmed!</h2>
           <p style="color: #666;">Dear ${data.guestName},</p>
-          <p style="color: #666;">Thank you for choosing The Shekhawat Haveli. Your booking has been confirmed.</p>
+          <p style="color: #666;">Thank you for choosing The Ummed Haveli. Your booking has been confirmed.</p>
           <div style="background: #f9f6f0; padding: 16px; margin: 16px 0; border-left: 3px solid #C8A45C;">
             <p style="margin: 4px 0;"><strong>Booking ID:</strong> ${data.bookingId}</p>
             <p style="margin: 4px 0;"><strong>Room:</strong> ${data.room}</p>
@@ -82,12 +82,12 @@ export async function sendBookingConfirmation(
             <strong>Complimentary airport pickup</strong> — Share your flight details and we'll be there.
           </p>
           <p style="color: #999; font-size: 13px; margin-top: 24px;">
-            For any changes, call us at +91 9XXX XXX XXX or reply to this email.
+            For any changes, call us at +91 72968 12341 or reply to this email.
           </p>
         </div>
         <div style="padding: 16px; text-align: center; background: #1C1917;">
           <p style="color: #C8A45C; font-size: 14px; margin: 0;">Padharo Mhare Desh!</p>
-          <p style="color: rgba(255,255,255,0.3); font-size: 11px; margin: 4px 0 0;">Pratap Nagar, Tonk Road, Jaipur 302033</p>
+          <p style="color: rgba(255,255,255,0.3); font-size: 11px; margin: 4px 0 0;">Krishi Nagar, Budh Singhpura, Near Terminal 1 Airport, Sanganer, Jaipur 302029</p>
         </div>
       </div>
     `,
@@ -105,21 +105,21 @@ export async function sendStatusChangeEmail(
   const statusMessages: Record<string, string> = {
     confirmed: "Your booking has been confirmed! We look forward to welcoming you.",
     cancelled: "Your booking has been cancelled. If this was a mistake, please contact us immediately.",
-    checked_in: "Welcome to The Shekhawat Haveli! We hope you enjoy your stay.",
+    checked_in: "Welcome to The Ummed Haveli! We hope you enjoy your stay.",
     checked_out: "Thank you for staying with us. We hope to see you again soon!",
   };
 
   await transporter.sendMail({
-    from: `"The Shekhawat Haveli" <${process.env.GMAIL_USER}>`,
+    from: `"The Ummed Haveli" <${process.env.GMAIL_USER}>`,
     to: guestEmail,
-    subject: `Booking ${status.replace("_", " ").toUpperCase()} — The Shekhawat Haveli`,
+    subject: `Booking ${status.replace("_", " ").toUpperCase()} — The Ummed Haveli`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
-        <h2 style="color: #5C1A2A;">The Shekhawat Haveli</h2>
+        <h2 style="color: #5C1A2A;">The Ummed Haveli</h2>
         <p>Dear ${guestName},</p>
         <p>${statusMessages[status] || `Your booking status has been updated to: ${status}`}</p>
         <p style="color: #999; font-size: 13px;">Booking ID: ${bookingId}</p>
-        <p style="color: #999; font-size: 13px;">Questions? Call +91 9XXX XXX XXX</p>
+        <p style="color: #999; font-size: 13px;">Questions? Call +91 72968 12341</p>
       </div>
     `,
   });

@@ -18,7 +18,7 @@ export default function GalleryPage() {
         <p className="sec-tag" style={{ color: "var(--gold)" }}>Visual Journey</p>
         <h1 className="sec-title">Photo <em>Gallery</em></h1>
         <div className="sec-line" style={{ margin: "16px auto" }}></div>
-        <p className="sec-desc">Explore The Shekhawat Haveli through our lens &mdash; from the grandeur of our rooms to the magic of rooftop dining.</p>
+        <p className="sec-desc">Explore The Ummed Haveli through our lens &mdash; from the grandeur of our rooms to the magic of rooftop dining.</p>
       </section>
 
       <section className="page-section">

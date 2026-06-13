@@ -58,7 +58,7 @@ export function openRazorpayCheckout(
     key: order.keyId,
     amount: order.amount,
     currency: order.currency,
-    name: "The Shekhawat Haveli",
+    name: "The Ummed Haveli",
     description: "Room Booking Payment",
     order_id: order.orderId,
     prefill: {

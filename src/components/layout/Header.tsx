@@ -45,21 +45,21 @@ export default function Header() {
       <header id="header" className={showSolid ? "scrolled" : ""} role="banner">
         <div className="top-bar">
           <div>
-            Pratap Nagar, Jaipur &bull; 2 km from Airport &bull;{" "}
-            <a href="tel:+919XXXXXXXXX" aria-label="Call The Shekhawat Haveli">
-              +91 9XXX XXX XXX
+            Sanganer, Jaipur &bull; Near Terminal 1 Airport &bull;{" "}
+            <a href="tel:+917296812341" aria-label="Call The Ummed Haveli">
+              +91 72968 12341
             </a>
           </div>
           <div>
-            <a href="mailto:reservations@theshekhawathaveli.com" aria-label="Email reservations">
-              reservations@theshekhawathaveli.com
+            <a href="mailto:theummedhaveli@gmail.com" aria-label="Email reservations">
+              theummedhaveli@gmail.com
             </a>
           </div>
         </div>
         <nav className="nav-main" role="navigation" aria-label="Main Navigation">
-          <a href="/" className="logo" aria-label="The Shekhawat Haveli Homepage">
-            <div className="logo-name">The Shekhawat Haveli</div>
-            <div className="logo-tag">Luxury Heritage Hotel &bull; Jaipur</div>
+          <a href="/" className="logo" aria-label="The Ummed Haveli Homepage">
+            <div className="logo-name">The Ummed Haveli</div>
+            <div className="logo-tag">A Heritage Hotel &bull; At The Airport</div>
           </a>
           <ul className="nav-links">
             {navLinks.map((link) => {
@@ -81,8 +81,8 @@ export default function Header() {
           </ul>
           <div className="nav-book">
             <span className="nav-phone">
-              <a href="tel:+919XXXXXXXXX" style={{ color: "var(--gold-l)" }} aria-label="Call to book">
-                +91 9XXX XXX XXX
+              <a href="tel:+917296812341" style={{ color: "var(--gold-l)" }} aria-label="Call to book">
+                +91 72968 12341
               </a>
             </span>
             <button className="btn-book" onClick={scrollToContact} aria-label="Book a room now">

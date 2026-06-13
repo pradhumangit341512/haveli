@@ -8,7 +8,7 @@ export default function About() {
             <img
               className="about-img-main"
               src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80"
-              alt="Hawa Mahal Jaipur Pink City landmark near The Shekhawat Haveli hotel in Pratap Nagar"
+              alt="Hawa Mahal Jaipur Pink City landmark near The Ummed Haveli hotel in Sanganer"
               width={544}
               height={420}
               loading="lazy"
@@ -17,7 +17,7 @@ export default function About() {
             <img
               className="about-img-sec"
               src="./Rajasthan-Haveli-1.jpg.webp"
-              alt="Traditional Rajasthani haveli archway architecture style used in The Shekhawat Haveli Jaipur"
+              alt="Traditional Rajasthani haveli archway architecture style used in The Ummed Haveli Jaipur"
               width={300}
               height={308}
               loading="lazy"
@@ -30,20 +30,20 @@ export default function About() {
           <div className="reveal">
             <div className="sec-tag">Our Legacy</div>
             <h2 className="sec-title" id="about-title">
-              Heritage Hotel in <em>Pratap Nagar, Jaipur</em>
+              Heritage Hotel in <em>Sanganer, Jaipur</em>
             </h2>
             <div className="sec-line"></div>
             <p className="sec-desc">
-              Rising majestically in Pratap Nagar on Tonk Road, The Shekhawat Haveli is a five-story
+              Rising majestically in Krishi Nagar, Sanganer, The Ummed Haveli is a five-story
               architectural marvel inspired by Rajasthan&apos;s timeless haveli tradition. Every arched
               window, carved balustrade, and hand-painted detail reflects the artistry of master
               Rajasthani craftsmen.
             </p>
             <p className="sec-desc" style={{ marginTop: 16 }}>
-              Just 2 kilometres from Jaipur International Airport, our 21 luxury rooms offer the
+              Located near Terminal 1 Airport in Sanganer, our 21 luxury rooms offer the
               perfect confluence of heritage aesthetics and five-star modern comfort. Our rooftop
               restaurant frames panoramic views of the airport runway against the dramatic silhouette
-              of the Aravallis &mdash; making us the best hotel near Jaipur airport for discerning
+              of the Aravallis &mdash; making us the best heritage hotel near Jaipur airport for discerning
               travelers.
             </p>
             <div className="about-features">

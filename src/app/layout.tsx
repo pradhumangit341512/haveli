@@ -6,12 +6,12 @@ import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import FacebookPixel from "@/components/analytics/FacebookPixel";
 
 export const metadata: Metadata = {
-  title: "The Shekhawat Haveli | Luxury Heritage Hotel Near Jaipur Airport | Pratap Nagar, Jaipur",
+  title: "The Ummed Haveli | A Heritage Hotel At The Airport | Sanganer, Jaipur",
   description:
-    "The Shekhawat Haveli - Luxury heritage hotel in Pratap Nagar, just 2 km from Jaipur Airport. 21 royal rooms from Rs 5,000/night, rooftop restaurant with airport view, 5-star facilities. Book direct and save. Free airport pickup.",
+    "The Ummed Haveli - A heritage hotel near Terminal 1 Airport, Sanganer, Jaipur. 21 royal rooms from Rs 5,000/night, rooftop restaurant with airport view, 5-star facilities. Book direct and save. Free airport pickup.",
   keywords:
-    "luxury hotel jaipur, hotel near jaipur airport, pratap nagar hotel, heritage hotel jaipur, rooftop restaurant jaipur, wedding hotel jaipur, best hotel tonk road, shekhawat haveli jaipur, 5 star hotel jaipur, airport hotel jaipur",
-  authors: [{ name: "The Shekhawat Haveli" }],
+    "luxury hotel jaipur, hotel near jaipur airport, sanganer hotel, heritage hotel jaipur, rooftop restaurant jaipur, wedding hotel jaipur, ummed haveli jaipur, 5 star hotel jaipur, airport hotel jaipur, hotel near terminal 1 jaipur",
+  authors: [{ name: "The Ummed Haveli" }],
   robots: {
     index: true,
     follow: true,
@@ -20,38 +20,38 @@ export const metadata: Metadata = {
     "max-video-preview": -1,
   },
   alternates: {
-    canonical: "https://www.theshekhawathaveli.com/",
+    canonical: "https://www.theummedhaveli.com/",
   },
   manifest: "/manifest.json",
   openGraph: {
     type: "website",
-    title: "The Shekhawat Haveli | Luxury Heritage Hotel Near Jaipur Airport",
+    title: "The Ummed Haveli | A Heritage Hotel At The Airport, Jaipur",
     description:
-      "21 royal rooms from Rs 5,000/night. Rooftop restaurant with airport view. 5-star facilities in Pratap Nagar. Just 2 km from Jaipur Airport. Free pickup.",
+      "21 royal rooms from Rs 5,000/night. Rooftop restaurant with airport view. Heritage hospitality near Terminal 1 Airport, Sanganer, Jaipur. Free pickup.",
     images: [
       {
-        url: "https://www.theshekhawathaveli.com/images/og-image.jpg",
+        url: "https://www.theummedhaveli.com/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "The Shekhawat Haveli luxury heritage hotel exterior in Pratap Nagar Jaipur",
+        alt: "The Ummed Haveli heritage hotel exterior in Sanganer Jaipur",
       },
     ],
-    url: "https://www.theshekhawathaveli.com/",
-    siteName: "The Shekhawat Haveli",
+    url: "https://www.theummedhaveli.com/",
+    siteName: "The Ummed Haveli",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Shekhawat Haveli | Luxury Heritage Hotel, Jaipur",
+    title: "The Ummed Haveli | A Heritage Hotel At The Airport, Jaipur",
     description:
-      "21 luxury rooms, rooftop airport view dining, 5-star heritage hotel in Pratap Nagar. From Rs 5,000/night.",
-    images: ["https://www.theshekhawathaveli.com/images/og-image.jpg"],
+      "21 luxury rooms, rooftop airport view dining, heritage hotel near Terminal 1 Airport, Sanganer. From Rs 5,000/night.",
+    images: ["https://www.theummedhaveli.com/images/og-image.jpg"],
   },
   other: {
     "geo.region": "IN-RJ",
     "geo.placename": "Jaipur, Rajasthan",
-    "geo.position": "26.82;75.79",
-    ICBM: "26.82, 75.79",
+    "geo.position": "26.8216411;75.815738",
+    ICBM: "26.8216411, 75.815738",
     "theme-color": "#5C1A2A",
   },
   icons: {

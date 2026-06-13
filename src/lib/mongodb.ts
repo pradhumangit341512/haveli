@@ -1,6 +1,6 @@
 import { MongoClient, Db } from "mongodb";
 
-const DB_NAME = "shekhawathaveli";
+const DB_NAME = "ummedhaveli";
 
 let cachedClient: MongoClient | null = null;
 let cachedDb: Db | null = null;

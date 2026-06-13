@@ -1,11 +1,11 @@
 // Centralized environment variable access with defaults
 
 export const env = {
-  phone: process.env.NEXT_PUBLIC_PHONE_NUMBER || "+919XXXXXXXXX",
-  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || "+91 9XXX XXX XXX",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919XXXXXXXXX",
-  email: process.env.NEXT_PUBLIC_EMAIL || "reservations@theshekhawathaveli.com",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.theshekhawathaveli.com",
+  phone: process.env.NEXT_PUBLIC_PHONE_NUMBER || "+917296812341",
+  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || "+91 72968 12341",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917296812341",
+  email: process.env.NEXT_PUBLIC_EMAIL || "theummedhaveli@gmail.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.theummedhaveli.com",
   razorpayKeyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "",
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
   fbPixelId: process.env.NEXT_PUBLIC_FB_PIXEL_ID || "",

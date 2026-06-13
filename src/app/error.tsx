@@ -44,7 +44,7 @@ export default function Error({
       </button>
       <p style={{ marginTop: 24, fontSize: 13, color: "rgba(255,255,255,0.3)" }}>
         Or call us directly: <a href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`} style={{ color: "var(--gold-l)" }}>
-          {process.env.NEXT_PUBLIC_PHONE_DISPLAY || "+91 9XXX XXX XXX"}
+          {process.env.NEXT_PUBLIC_PHONE_DISPLAY || "+91 72968 12341"}
         </a>
       </p>
     </div>

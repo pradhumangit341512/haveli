@@ -6,12 +6,12 @@ export default function Explore() {
       <div className="container text-center">
         <div className="sec-tag">Iconic Jaipur</div>
         <h2 className="sec-title" id="explore-title">
-          Tourist Destinations <em>Near The Shekhawat Haveli</em>
+          Tourist Destinations <em>Near The Ummed Haveli</em>
         </h2>
         <div className="sec-line"></div>
         <p className="sec-desc">
-          Jaipur&apos;s greatest heritage attractions are all within easy reach from our Pratap Nagar
-          location on Tonk Road
+          Jaipur&apos;s greatest heritage attractions are all within easy reach from our Krishi Nagar, Sanganer
+          location on Budh Singhpura
         </p>
       </div>
       <div className="container">

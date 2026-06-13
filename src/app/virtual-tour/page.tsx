@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Virtual Tour | The Shekhawat Haveli Jaipur",
-  description: "Take a 360-degree virtual tour of The Shekhawat Haveli luxury heritage hotel in Jaipur. Explore rooms, rooftop restaurant, and facilities from anywhere.",
+  title: "Virtual Tour | The Ummed Haveli Jaipur",
+  description: "Take a 360-degree virtual tour of The Ummed Haveli heritage hotel in Jaipur. Explore rooms, rooftop restaurant, and facilities from anywhere.",
 };
 
 export default function VirtualTourPage() {
@@ -26,7 +26,7 @@ export default function VirtualTourPage() {
         </h1>
         <div className="sec-line" style={{ margin: "16px auto" }}></div>
         <p className="sec-desc" style={{ color: "rgba(255,255,255,0.55)", margin: "0 auto" }}>
-          Explore The Shekhawat Haveli from anywhere in the world. Click on any area to begin your virtual walkthrough.
+          Explore The Ummed Haveli from anywhere in the world. Click on any area to begin your virtual walkthrough.
         </p>
       </section>
 

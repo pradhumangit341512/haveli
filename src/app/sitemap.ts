@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { roomsDetailed } from "@/data/rooms-detailed";
 import { blogPosts } from "@/data/blog";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.theshekhawathaveli.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.theummedhaveli.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

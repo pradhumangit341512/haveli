@@ -7,12 +7,12 @@ export default function Footer() {
     <footer className="footer" role="contentinfo">
       <div className="footer-main">
         <div>
-          <div className="footer-logo">The Shekhawat Haveli</div>
-          <p className="footer-tagline">Luxury Heritage Hotel &amp; Resort</p>
+          <div className="footer-logo">The Ummed Haveli</div>
+          <p className="footer-tagline">A Heritage Hotel At The Airport</p>
           <p className="footer-text">
-            A five-story haveli masterpiece in Pratap Nagar, Jaipur, offering 21 luxury rooms from
+            A heritage haveli masterpiece in Krishi Nagar, Sanganer, Jaipur, offering 21 luxury rooms from
             Rs 5,000/night, rooftop dining with airport views, and authentic Rajputana hospitality.
-            Just 2 km from Jaipur International Airport on Tonk Road.
+            Near Terminal 1 Airport, Jaipur.
           </p>
         </div>
         <div>
@@ -40,17 +40,19 @@ export default function Footer() {
         <div>
           <h4>Contact</h4>
           <ul className="footer-links">
-            <li><a href="tel:+919XXXXXXXXX">+91 9XXX XXX XXX</a></li>
-            <li><a href="mailto:reservations@theshekhawathaveli.com">reservations@theshekhawathaveli.com</a></li>
-            <li><a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener">WhatsApp Chat</a></li>
-            <li>Pratap Nagar, Tonk Road</li>
-            <li>Jaipur, Rajasthan 302033</li>
+            <li><a href="tel:+917296812341">+91 72968 12341</a></li>
+            <li><a href="tel:+911414063461">0141-4063461</a></li>
+            <li><a href="mailto:theummedhaveli@gmail.com">theummedhaveli@gmail.com</a></li>
+            <li><a href="https://wa.me/917296812341" target="_blank" rel="noopener">WhatsApp Chat</a></li>
+            <li>Krishi Nagar, Budh Singhpura</li>
+            <li>Near Terminal 1 Airport, Sanganer</li>
+            <li>Jaipur, Rajasthan 302029</li>
           </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        &copy; {year} The Shekhawat Haveli. All Rights Reserved. &bull; Luxury Heritage Hotel Near
-        Jaipur Airport, Pratap Nagar &bull; Website by <a href="#">Pradhuman Singh</a>
+        &copy; {year} The Ummed Haveli. All Rights Reserved. &bull; A Heritage Hotel At The Airport,
+        Sanganer, Jaipur &bull; Website by <a href="#">Pradhuman Singh</a>
       </div>
     </footer>
   );

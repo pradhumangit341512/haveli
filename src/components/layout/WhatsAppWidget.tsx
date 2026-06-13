@@ -4,11 +4,11 @@ import { useState } from "react";
 import { env } from "@/lib/env";
 
 const quickReplies = [
-  { label: "Check Room Availability", message: "Hi, I want to check room availability at The Shekhawat Haveli" },
-  { label: "Room Rates", message: "Hi, what are the current room rates at The Shekhawat Haveli?" },
+  { label: "Check Room Availability", message: "Hi, I want to check room availability at The Ummed Haveli" },
+  { label: "Room Rates", message: "Hi, what are the current room rates at The Ummed Haveli?" },
   { label: "Airport Pickup", message: "Hi, I need airport pickup service. My flight details:" },
-  { label: "Wedding Group Booking", message: "Hi, I want to inquire about wedding group booking at The Shekhawat Haveli" },
-  { label: "Directions to Hotel", message: "Hi, can you share directions to The Shekhawat Haveli from Jaipur Airport?" },
+  { label: "Wedding Group Booking", message: "Hi, I want to inquire about wedding group booking at The Ummed Haveli" },
+  { label: "Directions to Hotel", message: "Hi, can you share directions to The Ummed Haveli from Jaipur Airport?" },
 ];
 
 export default function WhatsAppWidget() {
@@ -59,7 +59,7 @@ export default function WhatsAppWidget() {
               UH
             </div>
             <div>
-              <p style={{ color: "white", fontWeight: 600, fontSize: 14 }}>The Shekhawat Haveli</p>
+              <p style={{ color: "white", fontWeight: 600, fontSize: 14 }}>The Ummed Haveli</p>
               <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 11 }}>Typically replies within minutes</p>
             </div>
             <button
@@ -82,7 +82,7 @@ export default function WhatsAppWidget() {
               lineHeight: 1.5,
               maxWidth: "85%",
             }}>
-              Namaste! Welcome to The Shekhawat Haveli. How can we help you today?
+              Namaste! Welcome to The Ummed Haveli. How can we help you today?
             </div>
           </div>
 
@@ -118,7 +118,7 @@ export default function WhatsAppWidget() {
           {/* Custom Message */}
           <div style={{ padding: "8px 16px 12px", borderTop: "1px solid #eee" }}>
             <button
-              onClick={() => sendMessage("Hi, I have a question about The Shekhawat Haveli")}
+              onClick={() => sendMessage("Hi, I have a question about The Ummed Haveli")}
               style={{
                 width: "100%",
                 background: "#25D366",

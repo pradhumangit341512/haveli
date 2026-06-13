@@ -12,7 +12,7 @@ function getDateString(daysFromNow: number): string {
 }
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [today, setToday] = useState("");
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
@@ -35,8 +35,10 @@ export default function ContactForm() {
     if (checkout <= val) setCheckout(nextStr);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (status === "loading") return;
+
     const form = e.currentTarget;
     const formData = new FormData(form);
 
@@ -50,16 +52,26 @@ export default function ContactForm() {
       message: formData.get("message") as string,
     };
 
-    fetch("/api/booking", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    }).catch(() => {});
+    setStatus("loading");
 
-    setSubmitted(true);
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    const url = buildWhatsAppBookingUrl(data);
-    setTimeout(() => { window.open(url, "_blank"); }, 800);
+      if (!res.ok) throw new Error("Request failed");
+
+      const result = await res.json();
+      if (!result.success) throw new Error("Booking failed");
+
+      setStatus("success");
+      const url = buildWhatsAppBookingUrl(data);
+      setTimeout(() => { window.open(url, "_blank"); }, 800);
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -124,12 +136,39 @@ export default function ContactForm() {
         <label htmlFor="fmsg">Special Requests</label>
         <textarea id="fmsg" name="message" placeholder="Airport pickup, special occasion, dietary needs, extra beds..."></textarea>
       </div>
-      <button type="submit" className="btn-send" aria-label="Submit booking request">
-        Send Booking Request
+      <button
+        type="submit"
+        className="btn-send"
+        aria-label="Submit booking request"
+        disabled={status === "loading" || status === "success"}
+        style={{ opacity: status === "loading" ? 0.7 : 1 }}
+      >
+        {status === "loading" ? "Sending..." : status === "success" ? "Sent!" : "Send Booking Request"}
       </button>
-      {submitted && (
+      {status === "success" && (
         <div id="formSuccess" style={{ display: "block" }} role="alert">
-          Your booking request has been sent. Our team will call you within 30 minutes. Padharo Mhare Desh!
+          Your booking request has been sent successfully! Our team will call you within 30 minutes. Padharo Mhare Desh!
+        </div>
+      )}
+      {status === "error" && (
+        <div
+          role="alert"
+          style={{
+            marginTop: 16,
+            padding: "14px 20px",
+            background: "rgba(220,53,69,0.12)",
+            border: "1px solid rgba(220,53,69,0.3)",
+            borderRadius: 8,
+            color: "#ff6b6b",
+            fontSize: 14,
+            lineHeight: 1.6,
+          }}
+        >
+          Booking request failed. Please try again or contact us directly at{" "}
+          <a href="tel:+917296812341" style={{ color: "var(--gold)", fontWeight: 600 }}>
+            +91 72968 12341
+          </a>{" "}
+          / <a href="tel:+911414063461" style={{ color: "var(--gold)", fontWeight: 600 }}>0141-4063461</a>
         </div>
       )}
     </form>

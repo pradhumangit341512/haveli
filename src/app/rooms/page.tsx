@@ -4,8 +4,8 @@ import Image from "next/image";
 import { roomsDetailed } from "@/data/rooms-detailed";
 
 export const metadata: Metadata = {
-  title: "Luxury Rooms & Suites | The Shekhawat Haveli Jaipur",
-  description: "Explore our 21 luxury rooms and suites at The Shekhawat Haveli. Royal Deluxe Rooms from Rs 5,000/night, Maharaja Heritage Suites, and Rajputana Family Suites.",
+  title: "Luxury Rooms & Suites | The Ummed Haveli Jaipur",
+  description: "Explore our 21 luxury rooms and suites at The Ummed Haveli. Royal Deluxe Rooms from Rs 5,000/night, Maharaja Heritage Suites, and Rajputana Family Suites.",
 };
 
 export default function RoomsPage() {

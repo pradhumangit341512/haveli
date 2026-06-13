@@ -26,7 +26,7 @@ export const roomsDetailed: RoomDetailed[] = [
     bedType: "King Size Bed",
     view: "City View",
     shortDescription: "Elegantly appointed room with hand-painted Rajasthani murals and modern comfort.",
-    longDescription: "The Royal Deluxe Room at The Shekhawat Haveli is a sanctuary of Rajasthani artistry and modern luxury. Each room features hand-painted murals by local master artisans, Jaipur block-printed textiles, and a marble-clad bathroom with rainfall shower. Wake up to panoramic views of Jaipur's skyline from your private window, and enjoy your morning chai on the cushioned window seat — a traditional jharokha reimagined for contemporary comfort. The room is equipped with a 40-inch LED smart TV, high-speed Wi-Fi, a well-stocked minibar, and a dedicated work desk for business travelers.",
+    longDescription: "The Royal Deluxe Room at The Ummed Haveli is a sanctuary of Rajasthani artistry and modern luxury. Each room features hand-painted murals by local master artisans, Jaipur block-printed textiles, and a marble-clad bathroom with rainfall shower. Wake up to panoramic views of Jaipur's skyline from your private window, and enjoy your morning chai on the cushioned window seat — a traditional jharokha reimagined for contemporary comfort. The room is equipped with a 40-inch LED smart TV, high-speed Wi-Fi, a well-stocked minibar, and a dedicated work desk for business travelers.",
     highlights: [
       "Hand-painted Rajasthani wall murals",
       "Jaipur block-printed bed linens",
@@ -49,8 +49,8 @@ export const roomsDetailed: RoomDetailed[] = [
       "Iron & Ironing Board",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=900&q=85", alt: "Royal Deluxe Room king bed with Rajasthani decor at The Shekhawat Haveli Jaipur" },
-      { src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=85", alt: "Royal Deluxe Room bathroom with Italian marble at The Shekhawat Haveli" },
+      { src: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=900&q=85", alt: "Royal Deluxe Room king bed with Rajasthani decor at The Ummed Haveli Jaipur" },
+      { src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=85", alt: "Royal Deluxe Room bathroom with Italian marble at The Ummed Haveli" },
       { src: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=900&q=85", alt: "Royal Deluxe Room window view of Jaipur city skyline" },
       { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=85", alt: "Royal Deluxe Room work desk and seating area" },
     ],
@@ -92,7 +92,7 @@ export const roomsDetailed: RoomDetailed[] = [
       "24/7 Room Service",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=85", alt: "Maharaja Heritage Suite bedroom with four-poster bed at The Shekhawat Haveli Jaipur" },
+      { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=85", alt: "Maharaja Heritage Suite bedroom with four-poster bed at The Ummed Haveli Jaipur" },
       { src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=85", alt: "Maharaja Suite jacuzzi bathroom with Aravalli views" },
       { src: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=900&q=85", alt: "Maharaja Suite living area with hand-carved diwan" },
       { src: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=900&q=85", alt: "Maharaja Suite private balcony airport view" },
@@ -134,7 +134,7 @@ export const roomsDetailed: RoomDetailed[] = [
       "Extra Towels & Linens",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=85", alt: "Rajputana Family Suite master bedroom at The Shekhawat Haveli Jaipur" },
+      { src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=85", alt: "Rajputana Family Suite master bedroom at The Ummed Haveli Jaipur" },
       { src: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=900&q=85", alt: "Rajputana Suite children's room with twin beds" },
       { src: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=900&q=85", alt: "Rajputana Suite private terrace garden" },
       { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=85", alt: "Rajputana Suite family dining area" },

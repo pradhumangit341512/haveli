@@ -11,7 +11,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero" aria-label="Hero banner for The Shekhawat Haveli luxury hotel">
+    <section className="hero" aria-label="Hero banner for The Ummed Haveli heritage hotel">
       <div className="hero-slides">
         {heroSlides.map((slide, i) => (
           <div key={i} className={`hero-slide ${i === currentSlide ? "active" : ""}`}>
@@ -31,25 +31,24 @@ export default function Hero() {
         <div className="hero-orn"></div>
         <div className="hero-badge">
           <span className="dot"></span>
-          <span>Luxury Heritage Hotel</span>
+          <span>A Heritage Hotel</span>
           <span className="dot"></span>
-          <span>Pratap Nagar, Jaipur</span>
+          <span>At The Airport, Jaipur</span>
           <span className="dot"></span>
         </div>
         <h1>
-          Luxury Heritage Hotel Near <em>Jaipur Airport</em>
-          <span className="hero-h1-sub">The Shekhawat Haveli</span>
+          A Heritage Hotel Near <em>Jaipur Airport</em>
+          <span className="hero-h1-sub">The Ummed Haveli</span>
         </h1>
         <p className="hero-desc">
           21 exquisitely crafted royal rooms with rooftop dining overlooking Jaipur Airport and the
-          timeless Aravallis. Five-star heritage hospitality in Pratap Nagar, just 2 km from the
-          airport.
+          timeless Aravallis. Heritage hospitality in Sanganer, near Terminal 1 Airport, Jaipur.
         </p>
         <div className="hero-btns">
           <button className="btn-gold" onClick={() => scrollTo("rooms")} aria-label="Explore our luxury rooms">
             Explore Rooms
           </button>
-          <button className="btn-ghost" onClick={() => scrollTo("contact")} aria-label="Reserve your stay at The Shekhawat Haveli">
+          <button className="btn-ghost" onClick={() => scrollTo("contact")} aria-label="Reserve your stay at The Ummed Haveli">
             Reserve Your Stay
           </button>
         </div>

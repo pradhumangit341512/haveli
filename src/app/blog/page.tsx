@@ -4,7 +4,7 @@ import Image from "next/image";
 import { blogPosts } from "@/data/blog";
 
 export const metadata: Metadata = {
-  title: "Jaipur Travel Blog & Guides | The Shekhawat Haveli",
+  title: "Jaipur Travel Blog & Guides | The Ummed Haveli",
   description: "Travel guides, wedding planning tips, and cultural insights for Jaipur.",
 };
 

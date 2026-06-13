@@ -2,19 +2,19 @@ import type { FAQItem } from "@/types";
 
 export const faqItems: FAQItem[] = [
   {
-    question: "How far is The Shekhawat Haveli from Jaipur Airport?",
-    answer: "The Shekhawat Haveli is just 2 km (5 minutes drive) from Jaipur International Airport (JAI). We offer complimentary airport pickup for all guests. Our rooftop restaurant offers direct views of the airport runway and Aravalli hills.",
+    question: "How far is The Ummed Haveli from Jaipur Airport?",
+    answer: "The Ummed Haveli is just 2 km (5 minutes drive) from Jaipur International Airport (JAI). We offer complimentary airport pickup for all guests. Our rooftop restaurant offers direct views of the airport runway and Aravalli hills.",
   },
   {
-    question: "What is the room rate at The Shekhawat Haveli?",
+    question: "What is the room rate at The Ummed Haveli?",
     answer: "Room rates start from Rs 5,000 per night for the Royal Deluxe Room. The Maharaja Heritage Suite starts at Rs 8,000 and the Rajputana Family Suite from Rs 10,000. All rates include complimentary breakfast, Wi-Fi, and airport transfer.",
   },
   {
-    question: "Does The Shekhawat Haveli have a rooftop restaurant?",
+    question: "Does The Ummed Haveli have a rooftop restaurant?",
     answer: "Yes, our signature rooftop restaurant offers panoramic views of Jaipur Airport and the Aravalli hills. We serve authentic Rajasthani cuisine including Dal Baati Churma and Laal Maas, along with North Indian and multi-cuisine options. Open daily for breakfast, lunch, and dinner.",
   },
   {
-    question: "Is The Shekhawat Haveli suitable for wedding guest bookings?",
+    question: "Is The Ummed Haveli suitable for wedding guest bookings?",
     answer: "Absolutely. We specialize in wedding guest group bookings with block rates for 10-50+ rooms. We offer group airport transfers, decorated rooms, and coordination with nearby wedding venues in South Jaipur. Peak wedding season is October to February.",
   },
   {
@@ -39,6 +39,6 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: "How can I book a room?",
-    answer: "Book directly on our website for the best rates, or call +91 9XXXXXXXXX, or WhatsApp us for instant confirmation. Also available on MakeMyTrip, Booking.com, Goibibo, Agoda, and Google Hotel Search.",
+    answer: "Book directly on our website for the best rates, or call +91 72968 12341, or WhatsApp us for instant confirmation. Also available on MakeMyTrip, Booking.com, Goibibo, Agoda, and Google Hotel Search.",
   },
 ];

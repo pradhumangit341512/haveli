@@ -15,7 +15,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     stars: 5,
-    text: "We booked 8 rooms for our wedding guests and The Shekhawat Haveli exceeded every expectation. The group coordination was seamless, rooms were gorgeous, and our guests couldn't stop praising the hospitality.",
+    text: "We booked 8 rooms for our wedding guests and The Ummed Haveli exceeded every expectation. The group coordination was seamless, rooms were gorgeous, and our guests couldn't stop praising the hospitality.",
     author: "Meera Agarwal",
     source: "Booking.com Review",
   },

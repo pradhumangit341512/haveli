@@ -11,7 +11,7 @@ export default function Facilities() {
         <div className="sec-line"></div>
         <p className="sec-desc">
           Every detail anticipated. From sunrise yoga on the rooftop to midnight room service, The
-          Shekhawat Haveli attends to your every desire with five-star precision.
+          Ummed Haveli attends to your every desire with five-star precision.
         </p>
       </div>
       <div className="container">
