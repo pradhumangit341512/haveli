@@ -6,8 +6,8 @@ export const faqItems: FAQItem[] = [
     answer: "The Ummed Haveli is just 2 km (5 minutes drive) from Jaipur International Airport (JAI). We offer complimentary airport pickup for all guests. Our rooftop restaurant offers direct views of the airport runway and Aravalli hills.",
   },
   {
-    question: "What is the room rate at The Ummed Haveli?",
-    answer: "Room rates start from Rs 3,000 per night for the Royal Premium Room and Rs 4,000 for the Royal Deluxe Room. All rates include complimentary breakfast, Wi-Fi, and airport transfer.",
+    question: "What does a stay at The Ummed Haveli include?",
+    answer: "Every stay includes complimentary breakfast, high-speed Wi-Fi, and airport transfer. For current availability and the best direct rate for your dates, please contact us or send an enquiry — we'll be happy to help.",
   },
   {
     question: "Does The Ummed Haveli have a rooftop restaurant?",

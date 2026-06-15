@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
               Book your stay at The Ummed Haveli &mdash; just 2 km from Jaipur Airport
             </p>
             <Link href="/#contact" className="btn-gold" style={{ display: "inline-block" }}>
-              Book Now &mdash; From &#8377;5,000/night
+              Book Now
             </Link>
           </div>
 

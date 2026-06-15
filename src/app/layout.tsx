@@ -8,7 +8,7 @@ import FacebookPixel from "@/components/analytics/FacebookPixel";
 export const metadata: Metadata = {
   title: "The Ummed Haveli | A Heritage Hotel At The Airport | Sanganer, Jaipur",
   description:
-    "The Ummed Haveli - A heritage hotel near Terminal 1 Airport, Sanganer, Jaipur. 21 royal rooms from Rs 5,000/night, rooftop restaurant with airport view, 5-star facilities. Book direct and save. Free airport pickup.",
+    "The Ummed Haveli - A heritage hotel near Terminal 1 Airport, Sanganer, Jaipur. Royal heritage rooms, rooftop restaurant with airport view, 5-star facilities. Book direct and save. Free airport pickup.",
   keywords:
     "luxury hotel jaipur, hotel near jaipur airport, sanganer hotel, heritage hotel jaipur, rooftop restaurant jaipur, wedding hotel jaipur, ummed haveli jaipur, 5 star hotel jaipur, airport hotel jaipur, hotel near terminal 1 jaipur",
   authors: [{ name: "The Ummed Haveli" }],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "The Ummed Haveli | A Heritage Hotel At The Airport, Jaipur",
     description:
-      "21 royal rooms from Rs 5,000/night. Rooftop restaurant with airport view. Heritage hospitality near Terminal 1 Airport, Sanganer, Jaipur. Free pickup.",
+      "Royal heritage rooms. Rooftop restaurant with airport view. Heritage hospitality near Terminal 1 Airport, Sanganer, Jaipur. Free pickup.",
     images: [
       {
         url: "https://www.theummedhaveli.com/images/og-image.jpg",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Ummed Haveli | A Heritage Hotel At The Airport, Jaipur",
     description:
-      "21 luxury rooms, rooftop airport view dining, heritage hotel near Terminal 1 Airport, Sanganer. From Rs 5,000/night.",
+      "Luxury heritage rooms, rooftop airport view dining, heritage hotel near Terminal 1 Airport, Sanganer, Jaipur.",
     images: ["https://www.theummedhaveli.com/images/og-image.jpg"],
   },
   other: {

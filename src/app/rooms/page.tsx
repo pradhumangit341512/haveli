@@ -5,7 +5,7 @@ import { roomsDetailed } from "@/data/rooms-detailed";
 
 export const metadata: Metadata = {
   title: "Luxury Rooms & Suites | The Ummed Haveli Jaipur",
-  description: "Explore our luxury rooms at The Ummed Haveli. Royal Premium Rooms from Rs 3,000/night and Royal Deluxe Rooms from Rs 4,000/night, with complimentary breakfast, Wi-Fi, and airport transfer.",
+  description: "Explore our luxury rooms at The Ummed Haveli — the Royal Premium Room and Royal Deluxe Room, each with complimentary breakfast, Wi-Fi, and airport transfer.",
 };
 
 export default function RoomsPage() {
@@ -39,10 +39,6 @@ export default function RoomsPage() {
                   ))}
                 </div>
                 <div className="room-listing-cta">
-                  <div>
-                    <span className="room-listing-price">&#8377;{room.price.toLocaleString("en-IN")}</span>
-                    <span style={{ fontSize: 13, color: "var(--text-l)" }}> /night</span>
-                  </div>
                   <Link href={`/rooms/${room.slug}`} className="btn-gold">View Details</Link>
                 </div>
               </div>

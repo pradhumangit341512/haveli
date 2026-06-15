@@ -69,11 +69,6 @@ export default async function RoomDetailPage({ params }: Props) {
           </div>
 
           <div className="room-detail-sidebar">
-            <p style={{ fontSize: 10, letterSpacing: 4, textTransform: "uppercase", color: "var(--gold)", marginBottom: 8 }}>Starting From</p>
-            <div style={{ marginBottom: 24 }}>
-              <span style={{ fontFamily: "'Cinzel', serif", fontSize: 36, color: "var(--gold)" }}>&#8377;{room.price.toLocaleString("en-IN")}</span>
-              <span style={{ fontSize: 14, color: "rgba(255,255,255,0.5)" }}> /night</span>
-            </div>
             <div style={{ background: "rgba(30,132,73,0.15)", border: "1px solid rgba(30,132,73,0.3)", padding: "10px 14px", marginBottom: 20, fontSize: 13, color: "#7DCEA0", textAlign: "center" }}>
               Book Direct & Save 15% vs OTA
             </div>

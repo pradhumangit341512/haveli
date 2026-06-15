@@ -10,8 +10,8 @@ export default function Footer() {
           <div className="footer-logo">The Ummed Haveli</div>
           <p className="footer-tagline">A Heritage Hotel At The Airport</p>
           <p className="footer-text">
-            A heritage haveli masterpiece in Krishi Nagar, Sanganer, Jaipur, offering luxury rooms from
-            Rs 3,000/night, rooftop dining with airport views, and authentic Rajputana hospitality.
+            A heritage haveli masterpiece in Krishi Nagar, Sanganer, Jaipur, offering luxury heritage
+            rooms, rooftop dining with airport views, and authentic Rajputana hospitality.
             Near Terminal 1 Airport, Jaipur.
           </p>
         </div>

@@ -29,7 +29,6 @@ export const hotelSchema: WithContext<Hotel> = {
     latitude: 26.8216411,
     longitude: 75.815738,
   },
-  priceRange: "Rs 3,000 - Rs 4,000",
   currenciesAccepted: "INR",
   paymentAccepted: "Cash, Credit Card, Debit Card, UPI, Net Banking",
   starRating: {

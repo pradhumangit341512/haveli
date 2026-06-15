@@ -16,13 +16,6 @@ export const exploreItems: ExploreItem[] = [
     alt: "Amber Fort Jaipur hilltop fortress 22 km from The Ummed Haveli",
   },
   {
-    distance: "13 km \u2022 28 min drive from hotel",
-    name: "City Palace",
-    description: "The living royal residence blending Rajasthani and Mughal architecture with world-class art museums",
-    image: "https://images.unsplash.com/photo-1651478881270-6c3a0fc883f4?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "City Palace Jaipur royal residence and museum 13 km from The Ummed Haveli",
-  },
-  {
     distance: "5 km \u2022 10 min drive from hotel",
     name: "Patrika Gate",
     description: "Instagram-famous ornate gateway representing Rajasthan's nine regions in vibrant traditional colours",

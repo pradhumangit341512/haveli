@@ -22,9 +22,6 @@ export default function Rooms() {
               <div className="room-overlay">
                 <div className="room-tag">{room.tag}</div>
                 <h3 className="room-name">{room.name}</h3>
-                <div className="room-price">
-                  From <b>&#8377;{room.price.toLocaleString("en-IN")}</b> /night
-                </div>
                 <div className="room-feats">
                   {room.features.map((feat) => (
                     <span key={feat} className="room-feat">{feat}</span>
