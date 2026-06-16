@@ -7,7 +7,7 @@ export default function About() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="about-img-main"
-              src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80"
+              src="./ummed.jpg"
               alt="Hawa Mahal Jaipur Pink City landmark near The Ummed Haveli hotel in Sanganer"
               width={544}
               height={420}
@@ -16,14 +16,14 @@ export default function About() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="about-img-sec"
-              src="./Rajasthan-Haveli-1.jpg.webp"
+              src="./room3.jpg"
               alt="Traditional Rajasthani haveli archway architecture style used in The Ummed Haveli Jaipur"
               width={300}
               height={308}
               loading="lazy"
             />
             <div className="about-exp">
-              <div className="about-exp-num">2025</div>
+              <div className="about-exp-num">2026</div>
               <div className="about-exp-label">Grand Opening</div>
             </div>
           </div>
@@ -34,7 +34,7 @@ export default function About() {
             </h2>
             <div className="sec-line"></div>
             <p className="sec-desc">
-              Rising majestically in Krishi Nagar, Sanganer, The Ummed Haveli is a five-story
+              Rising majestically in  Sanganer, The Ummed Haveli is a five-story
               architectural marvel inspired by Rajasthan&apos;s timeless haveli tradition. Every arched
               window, carved balustrade, and hand-painted detail reflects the artistry of master
               Rajasthani craftsmen.

@@ -777,7 +777,7 @@ function BookingFormModal({
 
         <div style={{ gridColumn: "1 / -1" }}>
           {field("Guest Message", (
-            <textarea style={{ ...s.input, minHeight: 60, resize: "vertical", fontFamily: "'DM Sans', sans-serif" }} value={state.message} onChange={(e) => onChange({ message: e.target.value })} placeholder="Airport pickup, dietary preferences, etc." />
+            <textarea style={{ ...s.input, minHeight: 60, resize: "vertical", fontFamily: "'DM Sans', sans-serif" }} value={state.message} onChange={(e) => onChange({ message: e.target.value })} placeholder="Special requests, dietary preferences, etc." />
           ))}
           {field("Internal Notes", (
             <textarea style={{ ...s.input, minHeight: 60, resize: "vertical", fontFamily: "'DM Sans', sans-serif" }} value={state.notes} onChange={(e) => onChange({ notes: e.target.value })} placeholder="VIP, repeat guest, follow-up reminders…" />

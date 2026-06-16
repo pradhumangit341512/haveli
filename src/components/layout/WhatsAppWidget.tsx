@@ -6,7 +6,6 @@ import { env } from "@/lib/env";
 const quickReplies = [
   { label: "Check Room Availability", message: "Hi, I want to check room availability at The Ummed Haveli" },
   { label: "Room Rates", message: "Hi, what are the current room rates at The Ummed Haveli?" },
-  { label: "Airport Pickup", message: "Hi, I need airport pickup service. My flight details:" },
   { label: "Wedding Group Booking", message: "Hi, I want to inquire about wedding group booking at The Ummed Haveli" },
   { label: "Directions to Hotel", message: "Hi, can you share directions to The Ummed Haveli from Jaipur Airport?" },
 ];

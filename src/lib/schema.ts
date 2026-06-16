@@ -36,12 +36,11 @@ export const hotelSchema: WithContext<Hotel> = {
     ratingValue: "4",
   },
   numberOfRooms: 21,
-  checkinTime: "14:00",
+  checkinTime: "12:00",
   checkoutTime: "11:00",
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "Free Wi-Fi", value: true },
     { "@type": "LocationFeatureSpecification", name: "Free Parking", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Airport Shuttle", value: true },
     { "@type": "LocationFeatureSpecification", name: "Rooftop Restaurant", value: true },
     { "@type": "LocationFeatureSpecification", name: "Room Service 24/7", value: true },
     { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },

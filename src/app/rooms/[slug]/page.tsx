@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { roomsDetailed } from "@/data/rooms-detailed";
+import RoomGallery from "@/components/rooms/RoomGallery";
 
 interface Props { params: Promise<{ slug: string }>; }
 
@@ -33,14 +33,7 @@ export default async function RoomDetailPage({ params }: Props) {
       </section>
 
       <section className="room-detail-gallery-section">
-        <div className="container room-detail-gallery">
-          <Image src={room.images[0].src} alt={room.images[0].alt} width={900} height={600} sizes="(max-width: 1024px) 100vw, 66vw" />
-          <div className="room-detail-gallery-side">
-            {room.images.slice(1, 3).map((img, i) => (
-              <Image key={i} src={img.src} alt={img.alt} width={450} height={300} sizes="(max-width: 1024px) 50vw, 33vw" />
-            ))}
-          </div>
-        </div>
+        <RoomGallery images={room.images} />
       </section>
 
       <section className="page-section">
@@ -73,7 +66,7 @@ export default async function RoomDetailPage({ params }: Props) {
               Book Direct & Save 15% vs OTA
             </div>
             <ul style={{ listStyle: "none", padding: 0, marginBottom: 24 }}>
-              {["Complimentary breakfast", "Free airport pickup", "Free cancellation (24hr)", "Free Wi-Fi"].map((item) => (
+              {["Complimentary breakfast", "Free cancellation (24hr)", "Free Wi-Fi"].map((item) => (
                 <li key={item} style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", padding: "6px 0" }}>
                   <span style={{ color: "var(--gold)", marginRight: 8 }}>&#10003;</span> {item}
                 </li>

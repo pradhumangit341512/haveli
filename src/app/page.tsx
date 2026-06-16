@@ -11,7 +11,6 @@ import FAQ from "@/components/faq/FAQ";
 import Contact from "@/components/contact/Contact";
 import WhatsAppWidget from "@/components/layout/WhatsAppWidget";
 import PriceBadge from "@/components/conversion/PriceBadge";
-import UrgencyBanner from "@/components/conversion/UrgencyBanner";
 import {
   hotelSchema,
   restaurantSchema,
@@ -63,7 +62,6 @@ export default function HomePage() {
 
       <WhatsAppWidget />
       <PriceBadge />
-      <UrgencyBanner />
     </>
   );
 }

@@ -9,7 +9,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     stars: 5,
-    text: "Reached late after a delayed flight and the airport pickup was waiting without any fuss. Room was spotless and the Rajasthani thali at dinner was easily the best meal we had in Jaipur. Genuinely felt looked after the whole stay.",
+    text: "Reached late after a delayed flight and check-in was quick and warm without any fuss. Room was spotless and the Rajasthani thali at dinner was easily the best meal we had in Jaipur. Genuinely felt looked after the whole stay.",
     author: "Vikram Singh Rathore",
     source: "MakeMyTrip Review",
   },

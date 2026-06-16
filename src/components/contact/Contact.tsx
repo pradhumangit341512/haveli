@@ -51,7 +51,7 @@ export default function Contact() {
             </div>
             <div className="c-item">
               <div className="c-label">From Jaipur Airport</div>
-              <div className="c-value">2 km &bull; 5 min drive &bull; Complimentary Pickup</div>
+              <div className="c-value">2 km &bull; 5 min drive</div>
             </div>
             <iframe
               className="c-map"

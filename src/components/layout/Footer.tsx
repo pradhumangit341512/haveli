@@ -34,7 +34,6 @@ export default function Footer() {
             <li><Link href="/offers#honeymoon-package">Honeymoon Package</Link></li>
             <li><Link href="/offers#wedding-group-deal">Wedding Packages</Link></li>
             <li><Link href="/offers#corporate-long-stay">Corporate Stays</Link></li>
-            <li><Link href="/#contact">Airport Transfer</Link></li>
           </ul>
         </div>
         <div>

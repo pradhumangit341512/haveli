@@ -8,7 +8,7 @@ import FacebookPixel from "@/components/analytics/FacebookPixel";
 export const metadata: Metadata = {
   title: "The Ummed Haveli | A Heritage Hotel At The Airport | Sanganer, Jaipur",
   description:
-    "The Ummed Haveli - A heritage hotel near Terminal 1 Airport, Sanganer, Jaipur. Royal heritage rooms, rooftop restaurant with airport view, 5-star facilities. Book direct and save. Free airport pickup.",
+    "The Ummed Haveli - A heritage hotel near Terminal 1 Airport, Sanganer, Jaipur. Royal heritage rooms, rooftop restaurant with airport view, 5-star facilities. Book direct and save.",
   keywords:
     "luxury hotel jaipur, hotel near jaipur airport, sanganer hotel, heritage hotel jaipur, rooftop restaurant jaipur, wedding hotel jaipur, ummed haveli jaipur, 5 star hotel jaipur, airport hotel jaipur, hotel near terminal 1 jaipur",
   authors: [{ name: "The Ummed Haveli" }],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "The Ummed Haveli | A Heritage Hotel At The Airport, Jaipur",
     description:
-      "Royal heritage rooms. Rooftop restaurant with airport view. Heritage hospitality near Terminal 1 Airport, Sanganer, Jaipur. Free pickup.",
+      "Royal heritage rooms. Rooftop restaurant with airport view. Heritage hospitality near Terminal 1 Airport, Sanganer, Jaipur.",
     images: [
       {
         url: "https://www.theummedhaveli.com/images/og-image.jpg",

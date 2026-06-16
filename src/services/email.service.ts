@@ -74,13 +74,10 @@ export async function sendBookingConfirmation(
           <div style="background: #f9f6f0; padding: 16px; margin: 16px 0; border-left: 3px solid #C8A45C;">
             <p style="margin: 4px 0;"><strong>Booking ID:</strong> ${data.bookingId}</p>
             <p style="margin: 4px 0;"><strong>Room:</strong> ${data.room}</p>
-            <p style="margin: 4px 0;"><strong>Check-in:</strong> ${data.checkin} (2:00 PM)</p>
+            <p style="margin: 4px 0;"><strong>Check-in:</strong> ${data.checkin} (12:00 PM)</p>
             <p style="margin: 4px 0;"><strong>Check-out:</strong> ${data.checkout} (11:00 AM)</p>
             <p style="margin: 4px 0;"><strong>Guests:</strong> ${data.guests}</p>
           </div>
-          <p style="color: #666; font-size: 14px;">
-            <strong>Complimentary airport pickup</strong> — Share your flight details and we'll be there.
-          </p>
           <p style="color: #999; font-size: 13px; margin-top: 24px;">
             For any changes, call us at +91 72968 12341 or reply to this email.
           </p>

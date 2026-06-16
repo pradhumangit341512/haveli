@@ -18,8 +18,8 @@ export const facilities: Facility[] = [
   },
   {
     icon: "\u2708",
-    name: "Free Airport Pickup",
-    description: "Complimentary luxury car pickup from Jaipur International Airport, just 2 km and 5 minutes from our entrance",
+    name: "Near the Airport",
+    description: "Ideally located just 2 km and 5 minutes from Jaipur International Airport \u2014 perfect for early flights and convenient arrivals",
   },
   {
     icon: "\u2318",
@@ -27,18 +27,8 @@ export const facilities: Facility[] = [
     description: "Enterprise-grade internet throughout the property, dedicated work desks, and co-working friendly spaces",
   },
   {
-    icon: "\u266B",
-    name: "Rooftop Lounge",
-    description: "Signature cocktails, sunset sessions, and curated Rajasthani folk music evenings under the stars",
-  },
-  {
     icon: "\u273F",
     name: "Events & Weddings",
     description: "Elegant banquet space for destination weddings in Jaipur, corporate events, and bespoke celebration packages",
-  },
-  {
-    icon: "\u270E",
-    name: "Curated Experiences",
-    description: "Jaipur sightseeing tours, Golden Triangle packages, Sanganer craft workshops, desert safaris, and heritage walks",
   },
 ];

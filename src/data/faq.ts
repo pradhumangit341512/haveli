@@ -3,23 +3,23 @@ import type { FAQItem } from "@/types";
 export const faqItems: FAQItem[] = [
   {
     question: "How far is The Ummed Haveli from Jaipur Airport?",
-    answer: "The Ummed Haveli is just 2 km (5 minutes drive) from Jaipur International Airport (JAI). We offer complimentary airport pickup for all guests. Our rooftop restaurant offers direct views of the airport runway and Aravalli hills.",
+    answer: "The Ummed Haveli is just 2 km (5 minutes drive) from Jaipur International Airport (JAI). Our rooftop restaurant offers direct views of the airport runway and Aravalli hills.",
   },
   {
     question: "What does a stay at The Ummed Haveli include?",
-    answer: "Every stay includes complimentary breakfast, high-speed Wi-Fi, and airport transfer. For current availability and the best direct rate for your dates, please contact us or send an enquiry — we'll be happy to help.",
+    answer: "Every stay includes complimentary breakfast and high-speed Wi-Fi. For current availability and the best direct rate for your dates, please contact us or send an enquiry — we'll be happy to help.",
   },
   {
     question: "Does The Ummed Haveli have a rooftop restaurant?",
-    answer: "Yes, our signature rooftop restaurant offers panoramic views of Jaipur Airport and the Aravalli hills. We serve authentic Rajasthani cuisine including Dal Baati Churma and Laal Maas, along with North Indian and multi-cuisine options. Open daily for breakfast, lunch, and dinner.",
+    answer: "Yes, our signature rooftop restaurant offers panoramic views of Jaipur Airport and the Aravalli hills. We serve authentic Rajasthani cuisine with North , South Indian and multi-cuisine options. Open daily for breakfast, lunch, and dinner.",
   },
   {
     question: "Is The Ummed Haveli suitable for wedding guest bookings?",
-    answer: "Absolutely. We specialize in wedding guest group bookings with block rates for 10-50+ rooms. We offer group airport transfers, decorated rooms, and coordination with nearby wedding venues in South Jaipur. Peak wedding season is October to February.",
+    answer: "Absolutely. We specialize in wedding guest group bookings with block rates for 21 rooms. We offer decorated rooms and coordination with nearby wedding venues in South Jaipur. Peak wedding season is October to February.",
   },
   {
     question: "What are the check-in and check-out times?",
-    answer: "Standard check-in is 2:00 PM and check-out is 11:00 AM. Early check-in and late check-out available on request. We accommodate early morning airport arrivals with complimentary waiting lounge access.",
+    answer: "Standard check-in is 12:00 PM and check-out is 11:00 AM. Early check-in and late check-out available on request. We accommodate early morning airport arrivals with complimentary waiting lounge access.",
   },
   {
     question: "What tourist attractions are near the hotel?",

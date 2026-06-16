@@ -133,7 +133,7 @@ export default function ContactForm() {
       </div>
       <div className="form-group">
         <label htmlFor="fmsg">Special Requests</label>
-        <textarea id="fmsg" name="message" placeholder="Airport pickup, special occasion, dietary needs, extra beds..."></textarea>
+        <textarea id="fmsg" name="message" placeholder="Special occasion, dietary needs, extra beds..."></textarea>
       </div>
       <button
         type="submit"
