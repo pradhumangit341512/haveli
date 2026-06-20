@@ -1,16 +1,36 @@
 "use client";
 
-import { useLoader } from "@/hooks/useLoader";
+import { useEffect, useState, useCallback } from "react";
+
+type Phase = "in" | "done";
 
 export default function Loader() {
-  const hidden = useLoader();
+  const [phase, setPhase] = useState<Phase>("in");
+
+  const finish = useCallback(() => setPhase("done"), []);
+
+  useEffect(() => {
+    if (phase === "done") return;
+    const timer = setTimeout(() => setPhase("done"), 1400);
+    return () => clearTimeout(timer);
+  }, [phase]);
 
   return (
-    <div id="loader" className={hidden ? "hide" : ""}>
-      <h2>
-        <span>The</span> <span>Ummed</span> <span>Haveli</span>
-      </h2>
-      <p>Jaipur &bull; Rajasthan</p>
+    <div
+      id="loader"
+      className={phase === "done" ? "hide" : ""}
+      onClick={finish}
+      role="presentation"
+    >
+      <div className="loader-stage">
+        <div className="loader-name show">
+          <h2>
+            <span>The</span> <span>Ummed</span> <span>Haveli</span>
+          </h2>
+          <span className="loader-name-line" aria-hidden />
+          <p>At The Airport</p>
+        </div>
+      </div>
     </div>
   );
 }

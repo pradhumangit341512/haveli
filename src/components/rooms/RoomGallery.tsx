@@ -10,7 +10,7 @@ interface GalleryImage {
 
 export default function RoomGallery({ images }: { images: GalleryImage[] }) {
   // Only the first three images are shown in the grid (main + 2 side).
-  const shown = images.slice(0, 3);
+  const shown = images.slice(0, 6);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const close = useCallback(() => setOpenIndex(null), []);
@@ -36,7 +36,8 @@ export default function RoomGallery({ images }: { images: GalleryImage[] }) {
 
   if (shown.length === 0) return null;
   const main = shown[0];
-  const side = shown.slice(1);
+  const side = shown.slice(1, 3);
+  const extra = shown.slice(3, 6);
 
   return (
     <>
@@ -54,6 +55,17 @@ export default function RoomGallery({ images }: { images: GalleryImage[] }) {
           ))}
         </div>
       </div>
+
+      {extra.length > 0 && (
+        <div className="container room-detail-gallery-thumbs" style={{ gridTemplateColumns: `repeat(${extra.length}, 1fr)` }}>
+          {extra.map((img, i) => (
+            <button type="button" key={i} className="rg-item" onClick={() => go(i + 3)} aria-label={`View ${img.alt} full size`}>
+              <Image src={img.src} alt={img.alt} width={450} height={300} sizes="(max-width: 1024px) 50vw, 33vw" />
+              <span className="rg-zoom" aria-hidden>⤢</span>
+            </button>
+          ))}
+        </div>
+      )}
 
       {openIndex !== null && (
         <div className="rg-lightbox" role="dialog" aria-modal="true" onClick={close}>

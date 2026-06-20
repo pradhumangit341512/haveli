@@ -8,3 +8,12 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .vercel
+
+# Large original media (kept locally; web uses converted .jpg/.mp4)
+*.MOV
+*.mov
+*.DNG
+*.dng
+*.HEIC
+*.heic
+public/a.pdf

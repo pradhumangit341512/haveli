@@ -34,6 +34,38 @@ export default function Rooms() {
             </article>
           ))}
         </div>
+
+        <div className="rooms-video reveal">
+          <div className="rooms-video-media">
+            <video
+              className="rooms-video-el"
+              src="/airport-takeoff.mp4"
+              poster="/airport-takeoff-poster.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="An aircraft taking off, seen from The Ummed Haveli near Jaipur Airport"
+            />
+            <span className="rooms-video-badge"><span className="dot" /> Live from our rooftop</span>
+          </div>
+          <div className="rooms-video-copy">
+            <div className="sec-tag" style={{ color: "var(--gold)" }}>At The Airport</div>
+            <h3 className="rooms-video-title">
+              Watch the World <em>Take Off</em>
+            </h3>
+            <div className="sec-line"></div>
+            <p className="sec-desc">
+              From our rooftop restaurant and Airport-View rooms, watch aircraft soar over the
+              Aravalli hills — a front-row seat to Jaipur&apos;s skies that no other heritage hotel
+              can offer. Just 2 km and five minutes from Terminal 1.
+            </p>
+            <a href="#contact" className="btn-gold rooms-video-cta" aria-label="Book an Airport-View room">
+              Book an Airport-View Room
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
