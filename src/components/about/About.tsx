@@ -16,7 +16,7 @@ export default function About() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="about-img-sec"
-              src="/room3.jpg"
+              src="/room3.JPG"
               alt="Traditional Rajasthani haveli archway architecture style used in The Ummed Haveli Jaipur"
               width={300}
               height={308}
