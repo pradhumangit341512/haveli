@@ -20,7 +20,7 @@ export default function About() {
               alt="Traditional Rajasthani haveli archway architecture style used in The Ummed Haveli Jaipur"
               width={300}
               height={308}
-              loading="lazy"
+              loading=  "lazy"
             />
             <div className="about-exp">
               <div className="about-exp-num">2026</div>

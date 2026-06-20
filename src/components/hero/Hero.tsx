@@ -37,7 +37,6 @@ export default function Hero() {
           <span className="dot"></span>
         </div>
         <h1>
-          
           <span className="hero-h1-sub">The Ummed Haveli</span>
         </h1>
         <p className="hero-desc">
