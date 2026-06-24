@@ -3,6 +3,7 @@ import type { NavLink, HeroSlide } from "@/types";
 export const navLinks: NavLink[] = [
   { href: "#about", label: "About", ariaLabel: "About The Ummed Haveli" },
   { href: "/rooms", label: "Rooms", ariaLabel: "View Rooms and Suites" },
+  { href: "/hawai-jharokha", label: "Hawai-Jharokha", ariaLabel: "Hawai Jharokha rooftop restaurant menu" },
   { href: "/offers", label: "Offers", ariaLabel: "Special Offers and Packages" },
   { href: "/gallery", label: "Gallery", ariaLabel: "Photo Gallery" },
   { href: "/blog", label: "Blog", ariaLabel: "Travel Blog and Guides" },

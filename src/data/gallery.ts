@@ -16,7 +16,7 @@ export const galleryImages: GalleryImage[] = [
   { src: "/daalbati.png", alt: "Authentic Rajasthani thali served at rooftop restaurant", category: "dining", caption: "Rajasthani Thali" },
   { src: "/IMG_7712.jpg", alt: "Rooftop restaurant dining setup with ambient lighting", category: "dining", caption: "Rooftop Dining" },
   { src: "/IMG_7708.jpg", alt: "Candlelit Dinner table on rooftop with Airport view", category: "dining", caption: "Airport View" },
-  { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=85", alt: "Chef preparing traditional Rajasthani dishes", category: "dining", caption: "Live Kitchen" },
+  { src: "/IMG_7747.jpg", alt: "Chef preparing traditional Rajasthani dishes", category: "dining", caption: "Live Kitchen" },
 
   // Exterior
   { src: "/mainoutside.jpg", alt: "Heritage architecture of The Ummed Haveli exterior", category: "exterior", caption: "Haveli Facade" },

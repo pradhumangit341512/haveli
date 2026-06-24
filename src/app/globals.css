@@ -695,6 +695,45 @@ section { padding: 100px 40px; }
 .page-hero .sec-desc { color: rgba(255,255,255,0.55); margin: 0 auto; }
 .page-section { background: var(--cream); padding: 80px 40px; }
 
+/* ===== HAWAI JHAROKHA (restaurant menu) ===== */
+.hj-hero { background: radial-gradient(circle at 50% -10%, #2A1016 0%, var(--dark) 62%); }
+.hj-hero-title { letter-spacing: 4px; }
+.hj-hero-desc { max-width: 640px; }
+.hj-hindi { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-l); font-size: clamp(16px, 2.4vw, 22px); letter-spacing: 1px; margin-top: 16px; }
+.hj-hero-meta { display: flex; flex-wrap: wrap; gap: 10px 12px; justify-content: center; margin-top: 26px; }
+.hj-hero-meta span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-l); border: 1px solid rgba(200,164,92,0.35); padding: 7px 15px; border-radius: 999px; }
+.hj-reserve { margin-top: 32px; display: inline-block; }
+
+.hj-section { padding-top: 64px; }
+.hj-quicknav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 60px; }
+.hj-pill { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--maroon-d); border: 1px solid var(--sand-d); padding: 8px 16px; border-radius: 999px; transition: all 0.3s; }
+.hj-pill:hover { background: var(--maroon-d); color: var(--gold-l); border-color: var(--maroon-d); transform: translateY(-2px); }
+
+.hj-menu { columns: 2; column-gap: 60px; }
+.hj-cat { break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 46px; }
+.hj-cat-head { text-align: center; margin-bottom: 22px; }
+.hj-cat-orn { display: block; color: var(--gold); font-size: 13px; margin-bottom: 6px; }
+.hj-cat-title { font-family: 'Cinzel', serif; font-size: 22px; color: var(--maroon-d); letter-spacing: 2px; font-weight: 500; }
+.hj-cat-note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--gold-d); margin-top: 5px; }
+.hj-items { list-style: none; padding: 0; margin: 0; }
+.hj-item { padding: 12px 0; border-bottom: 1px solid var(--sand); }
+.hj-item:last-child { border-bottom: none; }
+.hj-item-head { display: flex; align-items: baseline; gap: 6px; }
+.hj-item-name { font-family: 'Cinzel', serif; font-size: 14.5px; color: var(--text); letter-spacing: 0.4px; }
+.hj-item-dots { flex: 1 1 auto; border-bottom: 1px dotted var(--sand-d); transform: translateY(-3px); min-width: 16px; }
+.hj-item-price { font-family: 'Cinzel', serif; font-size: 14.5px; color: var(--gold-d); font-weight: 600; white-space: nowrap; }
+.hj-item-desc { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--text-m); line-height: 1.5; margin-top: 4px; max-width: 94%; }
+
+.hj-footnote { text-align: center; font-size: 12.5px; color: var(--text-l); max-width: 560px; margin: 16px auto 0; line-height: 1.6; }
+.hj-cta { text-align: center; margin-top: 64px; padding-top: 52px; border-top: 1px solid var(--sand-d); }
+.hj-cta-title { font-family: 'Cinzel', serif; font-size: clamp(24px, 3vw, 34px); color: var(--maroon-d); margin-bottom: 12px; }
+.hj-cta-desc { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-m); max-width: 520px; margin: 0 auto 26px; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .hj-menu { columns: 1; column-gap: 0; }
+  .hj-section { padding-top: 48px; }
+}
+
 /* ===== ROOM LISTING PAGE ===== */
 .room-listing { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px; }
 .room-listing:nth-child(even) { grid-template-columns: 1fr 1.2fr; }

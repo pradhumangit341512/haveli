@@ -20,6 +20,7 @@ export default function Footer() {
           <ul className="footer-links">
             <li><Link href="/#about">About Us</Link></li>
             <li><Link href="/rooms">Rooms &amp; Suites</Link></li>
+            <li><Link href="/hawai-jharokha">Hawai Jharokha Restaurant</Link></li>
             <li><Link href="/offers">Special Offers</Link></li>
             <li><Link href="/gallery">Photo Gallery</Link></li>
             <li><Link href="/blog">Travel Blog</Link></li>
