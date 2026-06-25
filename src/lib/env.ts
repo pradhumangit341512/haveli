@@ -5,7 +5,7 @@ export const env = {
   phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || "+91 72968 12341",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917296812341",
   email: process.env.NEXT_PUBLIC_EMAIL || "theummedhaveli@gmail.com",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.theummedhaveli.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.ummedhaveli.com",
   razorpayKeyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "",
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
   fbPixelId: process.env.NEXT_PUBLIC_FB_PIXEL_ID || "",

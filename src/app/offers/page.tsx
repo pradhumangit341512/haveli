@@ -6,6 +6,7 @@ import { offers } from "@/data/offers";
 export const metadata: Metadata = {
   title: "Special Offers & Packages | The Ummed Haveli Jaipur",
   description: "Exclusive deals: Honeymoon packages, wedding group rates, corporate stays, and weekend getaways.",
+  alternates: { canonical: "https://www.ummedhaveli.com/offers" },
 };
 
 export default function OffersPage() {

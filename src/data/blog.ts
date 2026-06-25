@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
       "## 8. Nahargarh Fort (18 km, 35 min)\nPerched on the edge of the Aravalli hills, Nahargarh offers the best panoramic views of Jaipur city. The sunset view from the fort walls is legendary. There's also a decent restaurant at the top.",
       "## 9. Amber Fort (22 km, 40 min)\nThe crown jewel of Jaipur's forts, Amber Fort's Sheesh Mahal (Mirror Palace) and Ganesh Pol gate are architectural masterpieces. Take the elephant ride up or walk the scenic cobblestone path. Allow 3+ hours for a full visit.",
       "## 10. Galtaji Temple (15 km, 30 min)\nKnown as the Monkey Temple, this ancient Hindu pilgrimage site is set in a narrow gorge in the Aravalli hills. Natural springs feed sacred kunds (water tanks). Best visited early morning.",
-      "## Where to Stay Near Jaipur Airport\nThe Ummed Haveli in Krishi Nagar, Sanganer is just 2 km from Jaipur Airport — the closest luxury heritage hotel to the terminal. With royal heritage rooms and a rooftop restaurant with direct airport views, it's the perfect base for exploring Jaipur. Book direct at theummedhaveli.com for the best rates.",
+      "## Where to Stay Near Jaipur Airport\nThe Ummed Haveli in Krishi Nagar, Sanganer is just 2 km from Jaipur Airport — the closest luxury heritage hotel to the terminal. With royal heritage rooms and a rooftop restaurant with direct airport views, it's the perfect base for exploring Jaipur. Book direct at ummedhaveli.com for the best rates.",
     ],
   },
   {

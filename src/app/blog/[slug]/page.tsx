@@ -16,9 +16,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return {};
+  const url = `https://www.ummedhaveli.com/blog/${post.slug}`;
   return {
     title: `${post.title} | The Ummed Haveli Blog`,
     description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url,
+      images: [{ url: post.image, alt: post.imageAlt }],
+      publishedTime: post.date,
+    },
   };
 }
 
@@ -27,8 +37,30 @@ export default async function BlogPostPage({ params }: Props) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    datePublished: post.date,
+    dateModified: post.date,
+    articleSection: post.category,
+    author: { "@type": "Organization", name: "The Ummed Haveli" },
+    publisher: {
+      "@type": "Organization",
+      name: "The Ummed Haveli",
+      logo: { "@type": "ImageObject", url: "https://www.ummedhaveli.com/logo.jpeg" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.ummedhaveli.com/blog/${post.slug}` },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <section style={{ background: "var(--dark)", padding: "140px 40px 60px", textAlign: "center" }}>
         <div style={{ display: "flex", gap: 16, justifyContent: "center", marginBottom: 16 }}>
           <span style={{ fontSize: 11, color: "var(--gold)", letterSpacing: 2 }}>{post.category}</span>

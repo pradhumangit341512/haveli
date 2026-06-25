@@ -14,7 +14,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const room = roomsDetailed.find((r) => r.slug === slug);
   if (!room) return {};
-  return { title: `${room.name} | The Ummed Haveli Jaipur`, description: room.shortDescription };
+  return {
+    title: `${room.name} | The Ummed Haveli Jaipur`,
+    description: room.shortDescription,
+    alternates: { canonical: `https://www.ummedhaveli.com/rooms/${room.slug}` },
+  };
 }
 
 export default async function RoomDetailPage({ params }: Props) {
@@ -22,8 +26,37 @@ export default async function RoomDetailPage({ params }: Props) {
   const room = roomsDetailed.find((r) => r.slug === slug);
   if (!room) notFound();
 
+  const roomSchema = {
+    "@context": "https://schema.org",
+    "@type": "HotelRoom",
+    name: room.name,
+    description: room.shortDescription,
+    url: `https://www.ummedhaveli.com/rooms/${room.slug}`,
+    image: room.images.map((img) =>
+      img.src.startsWith("http") ? img.src : `https://www.ummedhaveli.com${img.src}`
+    ),
+    bed: { "@type": "BedDetails", typeOfBed: room.bedType },
+    occupancy: { "@type": "QuantitativeValue", maxValue: room.maxGuests },
+    amenityFeature: room.amenities.map((a) => ({
+      "@type": "LocationFeatureSpecification",
+      name: a,
+      value: true,
+    })),
+    offers: {
+      "@type": "Offer",
+      price: room.price,
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      url: `https://www.ummedhaveli.com/rooms/${room.slug}`,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(roomSchema) }}
+      />
       <section className="page-hero">
         <p className="sec-tag" style={{ color: "var(--gold)" }}>{room.tag}</p>
         <h1 className="sec-title" style={{ color: "white" }}>{room.name}</h1>

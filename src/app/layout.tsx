@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "max-video-preview": -1,
   },
   alternates: {
-    canonical: "https://www.theummedhaveli.com/",
+    canonical: "https://www.ummedhaveli.com/",
   },
   manifest: "/manifest.json",
   openGraph: {
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
       "Royal heritage rooms. Rooftop restaurant with airport view. Heritage hospitality near Terminal 1 Airport, Sanganer, Jaipur.",
     images: [
       {
-        url: "https://www.theummedhaveli.com/images/og-image.jpg",
+        url: "https://www.ummedhaveli.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "The Ummed Haveli heritage hotel exterior in Sanganer Jaipur",
+        alt: "The Ummed Haveli — A Heritage Hotel At The Airport, Jaipur",
       },
     ],
-    url: "https://www.theummedhaveli.com/",
+    url: "https://www.ummedhaveli.com/",
     siteName: "The Ummed Haveli",
     locale: "en_IN",
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "The Ummed Haveli | A Heritage Hotel At The Airport, Jaipur",
     description:
       "Luxury heritage rooms, rooftop airport view dining, heritage hotel near Terminal 1 Airport, Sanganer, Jaipur.",
-    images: ["https://www.theummedhaveli.com/images/og-image.jpg"],
+    images: ["https://www.ummedhaveli.com/og-image.jpg"],
   },
   other: {
     "geo.region": "IN-RJ",
@@ -60,6 +60,7 @@ export const metadata: Metadata = {
       { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-64x64.png", type: "image/png", sizes: "64x64" },
       { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
       { url: "/favicon-512x512.png", type: "image/png", sizes: "512x512" },
     ],
