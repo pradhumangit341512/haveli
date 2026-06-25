@@ -704,34 +704,52 @@ section { padding: 100px 40px; }
 .hj-hero-meta span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-l); border: 1px solid rgba(200,164,92,0.35); padding: 7px 15px; border-radius: 999px; }
 .hj-reserve { margin-top: 32px; display: inline-block; }
 
-.hj-section { padding-top: 64px; }
-.hj-quicknav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 60px; }
-.hj-pill { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--maroon-d); border: 1px solid var(--sand-d); padding: 8px 16px; border-radius: 999px; transition: all 0.3s; }
-.hj-pill:hover { background: var(--maroon-d); color: var(--gold-l); border-color: var(--maroon-d); transform: translateY(-2px); }
+/* PDF-style parchment menu */
+.hj-section { padding-top: 56px; background: #E7D9B4; }
+.hj-quicknav { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin-bottom: 44px; }
+.hj-pill { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #7B1E1E; border: 1px solid rgba(123,30,30,0.3); background: rgba(255,250,235,0.55); padding: 8px 16px; border-radius: 999px; transition: all 0.3s; }
+.hj-pill:hover { background: #7B1E1E; color: #FBEFC2; border-color: #7B1E1E; transform: translateY(-2px); }
 
-.hj-menu { columns: 2; column-gap: 60px; }
-.hj-cat { break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 46px; }
-.hj-cat-head { text-align: center; margin-bottom: 22px; }
-.hj-cat-orn { display: block; color: var(--gold); font-size: 13px; margin-bottom: 6px; }
-.hj-cat-title { font-family: 'Cinzel', serif; font-size: 22px; color: var(--maroon-d); letter-spacing: 2px; font-weight: 500; }
-.hj-cat-note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--gold-d); margin-top: 5px; }
+.hj-sheet {
+  position: relative;
+  background:
+    radial-gradient(120% 70% at 50% 0%, #FFF8D8 0%, rgba(255,248,216,0) 55%),
+    linear-gradient(180deg, #FCEFC2 0%, #F6E4A8 100%);
+  border: 2px solid #8B2020;
+  box-shadow: inset 0 0 0 5px #FBEFC2, inset 0 0 0 6px rgba(150,119,47,0.5), 0 28px 64px -30px rgba(60,13,24,0.55);
+  padding: clamp(28px, 4.5vw, 60px);
+}
+.hj-sheet::before { content: ""; position: absolute; inset: 13px; border: 1px dashed rgba(150,119,47,0.5); pointer-events: none; }
+.hj-corner { position: absolute; color: #8B2020; font-size: 15px; line-height: 1; z-index: 2; }
+.hj-corner-tl { top: 17px; left: 17px; } .hj-corner-tr { top: 17px; right: 17px; }
+.hj-corner-bl { bottom: 17px; left: 17px; } .hj-corner-br { bottom: 17px; right: 17px; }
+
+.hj-menu { columns: 2; column-gap: 54px; position: relative; }
+.hj-cat { break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 40px; }
+.hj-cat-head { text-align: center; margin-bottom: 18px; }
+.hj-cat-flourish { display: block; color: var(--gold-d); font-size: 16px; margin-bottom: 4px; }
+.hj-cat-title { font-family: 'Cinzel', serif; font-size: clamp(19px, 2.3vw, 23px); color: #7B1E1E; letter-spacing: 2px; font-weight: 600; display: inline-block; }
+.hj-cat-title::before { content: "꞉ "; color: var(--gold-d); }
+.hj-cat-title::after { content: " ꞉"; color: var(--gold-d); }
+.hj-cat-note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: #9a6a2a; margin-top: 5px; }
 .hj-items { list-style: none; padding: 0; margin: 0; }
-.hj-item { padding: 12px 0; border-bottom: 1px solid var(--sand); }
+.hj-item { padding: 11px 0; border-bottom: 1px dotted rgba(139,32,32,0.22); }
 .hj-item:last-child { border-bottom: none; }
 .hj-item-head { display: flex; align-items: baseline; gap: 6px; }
-.hj-item-name { font-family: 'Cinzel', serif; font-size: 14.5px; color: var(--text); letter-spacing: 0.4px; }
-.hj-item-dots { flex: 1 1 auto; border-bottom: 1px dotted var(--sand-d); transform: translateY(-3px); min-width: 16px; }
-.hj-item-price { font-family: 'Cinzel', serif; font-size: 14.5px; color: var(--gold-d); font-weight: 600; white-space: nowrap; }
-.hj-item-desc { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--text-m); line-height: 1.5; margin-top: 4px; max-width: 94%; }
+.hj-item-name { font-family: 'Cinzel', serif; font-size: 14px; color: #5A2317; letter-spacing: 0.4px; }
+.hj-item-dots { flex: 1 1 auto; border-bottom: 1px dotted rgba(150,119,47,0.55); transform: translateY(-3px); min-width: 16px; }
+.hj-item-price { font-family: 'Cinzel', serif; font-size: 14.5px; color: #8B2020; font-weight: 700; white-space: nowrap; }
+.hj-item-desc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14.5px; color: #7A6450; line-height: 1.5; margin-top: 3px; max-width: 95%; }
 
-.hj-footnote { text-align: center; font-size: 12.5px; color: var(--text-l); max-width: 560px; margin: 16px auto 0; line-height: 1.6; }
-.hj-cta { text-align: center; margin-top: 64px; padding-top: 52px; border-top: 1px solid var(--sand-d); }
+.hj-footnote { text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: #8B6A3A; max-width: 620px; margin: 30px auto 0; padding-top: 22px; border-top: 1px dashed rgba(150,119,47,0.45); line-height: 1.6; }
+.hj-footnote { letter-spacing: 0.3px; }
+.hj-cta { text-align: center; margin-top: 56px; }
 .hj-cta-title { font-family: 'Cinzel', serif; font-size: clamp(24px, 3vw, 34px); color: var(--maroon-d); margin-bottom: 12px; }
 .hj-cta-desc { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-m); max-width: 520px; margin: 0 auto 26px; line-height: 1.6; }
 
 @media (max-width: 900px) {
   .hj-menu { columns: 1; column-gap: 0; }
-  .hj-section { padding-top: 48px; }
+  .hj-section { padding-top: 44px; }
 }
 
 /* ===== ROOM LISTING PAGE ===== */

@@ -92,34 +92,41 @@ export default function HawaiJharokhaPage() {
             ))}
           </nav>
 
-          <div className="hj-menu">
-            {menu.map((cat) => (
-              <section key={cat.id} id={cat.id} className="hj-cat reveal" aria-labelledby={`${cat.id}-title`}>
-                <header className="hj-cat-head">
-                  <span className="hj-cat-orn" aria-hidden>&#10070;</span>
-                  <h2 className="hj-cat-title" id={`${cat.id}-title`}>{cat.name}</h2>
-                  {cat.note && <p className="hj-cat-note">{cat.note}</p>}
-                </header>
-                <ul className="hj-items">
-                  {cat.items.map((item) => (
-                    <li key={item.name} className="hj-item">
-                      <div className="hj-item-head">
-                        <span className="hj-item-name">{item.name}</span>
-                        <span className="hj-item-dots" aria-hidden></span>
-                        <span className="hj-item-price">{formatPrice(item.price)}</span>
-                      </div>
-                      {item.desc && <p className="hj-item-desc">{item.desc}</p>}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
+          <div className="hj-sheet">
+            <span className="hj-corner hj-corner-tl" aria-hidden>&#10070;</span>
+            <span className="hj-corner hj-corner-tr" aria-hidden>&#10070;</span>
+            <span className="hj-corner hj-corner-bl" aria-hidden>&#10070;</span>
+            <span className="hj-corner hj-corner-br" aria-hidden>&#10070;</span>
 
-          <p className="hj-footnote">
-            All prices are subject to applicable government taxes. Please inform our associate if you
-            are allergic to any ingredient.
-          </p>
+            <div className="hj-menu">
+              {menu.map((cat) => (
+                <section key={cat.id} id={cat.id} className="hj-cat reveal" aria-labelledby={`${cat.id}-title`}>
+                  <header className="hj-cat-head">
+                    <span className="hj-cat-flourish" aria-hidden>&#10086;</span>
+                    <h2 className="hj-cat-title" id={`${cat.id}-title`}>{cat.name}</h2>
+                    {cat.note && <p className="hj-cat-note">{cat.note}</p>}
+                  </header>
+                  <ul className="hj-items">
+                    {cat.items.map((item) => (
+                      <li key={item.name} className="hj-item">
+                        <div className="hj-item-head">
+                          <span className="hj-item-name">{item.name}</span>
+                          <span className="hj-item-dots" aria-hidden></span>
+                          <span className="hj-item-price">{formatPrice(item.price)}</span>
+                        </div>
+                        {item.desc && <p className="hj-item-desc">{item.desc}</p>}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+
+            <p className="hj-footnote">
+              &#10086;&ensp;All prices are subject to applicable government taxes. Please inform our
+              associate if you are allergic to any ingredient.&ensp;&#10086;
+            </p>
+          </div>
 
           <div className="hj-cta">
             <h2 className="hj-cta-title">An Evening to Remember</h2>

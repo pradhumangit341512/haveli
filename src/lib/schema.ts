@@ -129,7 +129,7 @@ export const organizationSchema: WithContext<Organization> = {
   url: "https://www.ummedhaveli.com",
   logo: "https://www.ummedhaveli.com/logo.jpeg",
   sameAs: [
-    "https://www.instagram.com/theummedhaveli/",
+    "https://www.instagram.com/the_ummed_haveli/",
     "https://www.facebook.com/theummedhaveli/",
     "https://www.youtube.com/@theummedhaveli",
   ],
