@@ -62,17 +62,18 @@ header.scrolled { background: rgba(12,10,8,0.97); backdrop-filter: blur(16px); }
 header.scrolled .top-bar { display: none; }
 
 /* ===== NAV ===== */
-.nav-main { padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
+.nav-main { padding: 16px 28px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
 .logo { text-align: center; }
 .logo-name { font-family: 'Cinzel', serif; color: var(--gold); font-size: 20px; letter-spacing: 4px; font-weight: 500; }
 .logo-tag { font-size: 9px; letter-spacing: 5px; color: var(--gold-d); text-transform: uppercase; margin-top: 1px; }
-.nav-links { display: flex; gap: 28px; list-style: none; }
-.nav-links a { color: rgba(255,255,255,0.75); font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 400; transition: all 0.3s; position: relative; padding-bottom: 3px; }
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.75); font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 400; transition: all 0.3s; position: relative; padding-bottom: 3px; white-space: nowrap; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); }
 .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 1px; background: var(--gold); transition: all 0.3s; transform: translateX(-50%); }
 .nav-links a:hover::after { width: 100%; }
 .nav-book { display: flex; align-items: center; gap: 16px; }
-.nav-phone { color: var(--gold-l); font-size: 13px; letter-spacing: 1px; }
+.nav-phone { color: var(--gold-l); font-size: 13px; letter-spacing: 1px; white-space: nowrap; }
+.btn-book { white-space: nowrap; }
 .btn-book { background: var(--gold); color: var(--dark); padding: 10px 28px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; transition: all 0.3s; }
 .btn-book:hover { background: var(--gold-l); transform: translateY(-1px); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
