@@ -13,7 +13,7 @@ export interface MenuCategory {
 
 // Hawai Jharokha — pure-vegetarian multi-cuisine rooftop restaurant.
 // Prices in INR, subject to government taxes.
-export const menu: MenuCategory[] = [
+const menuRaw: MenuCategory[] = [
   {
     id: "breakfast",
     name: "Breakfast",
@@ -221,3 +221,25 @@ export const menu: MenuCategory[] = [
     ],
   },
 ];
+
+// Display order of menu categories on the Hawai Jharokha page.
+const MENU_ORDER = [
+  "breakfast",
+  "starters",
+  "soups",
+  "pasta-wrap",
+  "pizza",
+  "kulchas",
+  "paneer",
+  "vegetables",
+  "dal",
+  "rice-bread",
+  "shakes",
+  "salad-raita",
+  "beverages",
+  "dessert",
+];
+
+export const menu: MenuCategory[] = MENU_ORDER
+  .map((id) => menuRaw.find((c) => c.id === id))
+  .filter((c): c is MenuCategory => Boolean(c));
