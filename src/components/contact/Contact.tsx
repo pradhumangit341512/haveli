@@ -37,7 +37,7 @@ export default function Contact() {
               <div className="c-label">WhatsApp</div>
               <div className="c-value">
                 <a href="https://wa.me/917296812341" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-                  Chat with us instantly
+                  +91 72968 12341
                 </a>
               </div>
             </div>

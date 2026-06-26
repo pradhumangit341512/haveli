@@ -725,7 +725,7 @@ section { padding: 100px 40px; }
 .hj-corner-bl { bottom: 17px; left: 17px; } .hj-corner-br { bottom: 17px; right: 17px; }
 
 .hj-menu { columns: 2; column-gap: 54px; position: relative; }
-.hj-cat { break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 40px; }
+.hj-cat { break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 40px; scroll-margin-top: 104px; }
 .hj-cat-head { text-align: center; margin-bottom: 18px; }
 .hj-cat-flourish { display: block; color: var(--gold-d); font-size: 16px; margin-bottom: 4px; }
 .hj-cat-title { font-family: 'Cinzel', serif; font-size: clamp(19px, 2.3vw, 23px); color: #7B1E1E; letter-spacing: 2px; font-weight: 600; display: inline-block; }
@@ -750,6 +750,7 @@ section { padding: 100px 40px; }
 @media (max-width: 900px) {
   .hj-menu { columns: 1; column-gap: 0; }
   .hj-section { padding-top: 44px; }
+  .hj-cat { scroll-margin-top: 96px; }
 }
 
 /* ===== ROOM LISTING PAGE ===== */
