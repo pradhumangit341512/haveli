@@ -100,7 +100,7 @@ export default function HawaiJharokhaPage() {
 
             <div className="hj-menu">
               {menu.map((cat) => (
-                <section key={cat.id} id={cat.id} className="hj-cat reveal" aria-labelledby={`${cat.id}-title`}>
+                <section key={cat.id} id={cat.id} className="hj-cat" aria-labelledby={`${cat.id}-title`}>
                   <header className="hj-cat-head">
                     <span className="hj-cat-flourish" aria-hidden>&#10086;</span>
                     <h2 className="hj-cat-title" id={`${cat.id}-title`}>{cat.name}</h2>
