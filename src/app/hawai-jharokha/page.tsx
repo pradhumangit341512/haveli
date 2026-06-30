@@ -11,55 +11,9 @@ export const metadata: Metadata = {
 
 const formatPrice = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
-const restaurantSchema = {
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  name: "Hawai Jharokha",
-  description:
-    "Pure-vegetarian rooftop restaurant at The Ummed Haveli, Jaipur — Rajasthani, North Indian and Continental multi-cuisine dining with panoramic Jaipur airport and Aravalli views.",
-  servesCuisine: ["Rajasthani", "North Indian", "Continental", "Italian", "Multi-Cuisine"],
-  url: "https://www.ummedhaveli.com/hawai-jharokha",
-  image: "https://www.ummedhaveli.com/IMG_7712.jpg",
-  telephone: "+917296812341",
-  priceRange: "₹₹",
-  acceptsReservations: true,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Krishi Nagar, Budh Singhpura, Near Terminal 1 Airport, Sanganer",
-    addressLocality: "Jaipur",
-    addressRegion: "Rajasthan",
-    postalCode: "302029",
-    addressCountry: "IN",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    opens: "07:00",
-    closes: "23:00",
-  },
-  hasMenu: {
-    "@type": "Menu",
-    name: "Hawai Jharokha Menu",
-    hasMenuSection: menu.map((cat) => ({
-      "@type": "MenuSection",
-      name: cat.name,
-      hasMenuItem: cat.items.map((item) => ({
-        "@type": "MenuItem",
-        name: item.name,
-        ...(item.desc ? { description: item.desc } : {}),
-        offers: { "@type": "Offer", price: item.price, priceCurrency: "INR" },
-      })),
-    })),
-  },
-};
-
 export default function HawaiJharokhaPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema) }}
-      />
       <section className="page-hero hj-hero">
         <p className="sec-tag" style={{ color: "var(--gold)" }}>Rooftop Restaurant &bull; Pure Vegetarian</p>
         <h1 className="sec-title hj-hero-title">
