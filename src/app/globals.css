@@ -725,8 +725,8 @@ section { padding: 100px 40px; }
 .hj-corner-tl { top: 17px; left: 17px; } .hj-corner-tr { top: 17px; right: 17px; }
 .hj-corner-bl { bottom: 17px; left: 17px; } .hj-corner-br { bottom: 17px; right: 17px; }
 
-.hj-menu { display: grid; grid-template-columns: 1fr 1fr; column-gap: 54px; row-gap: 38px; align-items: start; position: relative; }
-.hj-cat { scroll-margin-top: 104px; }
+.hj-menu { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; row-gap: 28px; align-items: start; position: relative; }
+.hj-cat { scroll-margin-top: 112px; background: rgba(255,251,238,0.5); border: 1px solid rgba(139,32,32,0.16); border-radius: 4px; padding: 24px 26px 20px; }
 .hj-cat-head { text-align: center; margin-bottom: 18px; }
 .hj-cat-flourish { display: block; color: var(--gold-d); font-size: 16px; margin-bottom: 4px; }
 .hj-cat-title { font-family: 'Cinzel', serif; font-size: clamp(19px, 2.3vw, 23px); color: #7B1E1E; letter-spacing: 2px; font-weight: 600; display: inline-block; }
