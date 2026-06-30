@@ -4,6 +4,9 @@ import { LanguageProvider } from "@/components/language/LanguageContext";
 import ClientShell from "@/components/layout/ClientShell";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import FacebookPixel from "@/components/analytics/FacebookPixel";
+import { env } from "@/lib/env";
+
+const SITE = env.siteUrl;
 
 export const metadata: Metadata = {
   title: "The Ummed Haveli | A Heritage Hotel At The Airport | Sanganer, Jaipur",
@@ -20,7 +23,7 @@ export const metadata: Metadata = {
     "max-video-preview": -1,
   },
   alternates: {
-    canonical: "https://www.ummedhaveli.com/",
+    canonical: `${SITE}/`,
   },
   manifest: "/manifest.json",
   openGraph: {
@@ -30,13 +33,13 @@ export const metadata: Metadata = {
       "Royal heritage rooms. Rooftop restaurant with airport view. Heritage hospitality near Terminal 1 Airport, Sanganer, Jaipur.",
     images: [
       {
-        url: "https://www.ummedhaveli.com/og-image.jpg",
+        url: `${SITE}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: "The Ummed Haveli — A Heritage Hotel At The Airport, Jaipur",
       },
     ],
-    url: "https://www.ummedhaveli.com/",
+    url: `${SITE}/`,
     siteName: "The Ummed Haveli",
     locale: "en_IN",
   },
@@ -45,7 +48,7 @@ export const metadata: Metadata = {
     title: "The Ummed Haveli | A Heritage Hotel At The Airport, Jaipur",
     description:
       "Luxury heritage rooms, rooftop airport view dining, heritage hotel near Terminal 1 Airport, Sanganer, Jaipur.",
-    images: ["https://www.ummedhaveli.com/og-image.jpg"],
+    images: [`${SITE}/og-image.jpg`],
   },
   other: {
     "geo.region": "IN-RJ",

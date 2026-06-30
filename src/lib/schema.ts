@@ -1,5 +1,8 @@
 import type { WithContext, Hotel, Restaurant, FAQPage, BreadcrumbList, Organization } from "schema-dts";
 import { faqItems } from "@/data/faq";
+import { env } from "@/lib/env";
+
+const SITE = env.siteUrl;
 
 export const hotelSchema: WithContext<Hotel> = {
   "@context": "https://schema.org",
@@ -8,13 +11,13 @@ export const hotelSchema: WithContext<Hotel> = {
   alternateName: "Ummed Haveli Jaipur",
   description:
     "A heritage hotel near Terminal 1 Airport, Sanganer, Jaipur. 21 royal rooms with Rajasthani haveli architecture, rooftop restaurant with Jaipur Airport panoramic views, 5-star facilities.",
-  url: "https://www.ummedhaveli.com",
+  url: SITE,
   telephone: "+917296812341",
   email: "theummedhaveli@gmail.com",
   image: [
-    "https://www.ummedhaveli.com/IMG_7858.jpg",
-    "https://www.ummedhaveli.com/DSC07588.JPG",
-    "https://www.ummedhaveli.com/IMG_7712.jpg",
+    `${SITE}/IMG_7858.jpg`,
+    `${SITE}/DSC07588.JPG`,
+    `${SITE}/IMG_7712.jpg`,
   ],
   address: {
     "@type": "PostalAddress",
@@ -69,8 +72,8 @@ export const restaurantSchema: WithContext<Restaurant> = {
   description:
     "Rooftop multi-cuisine restaurant with panoramic Jaipur Airport and Aravalli views. Authentic Rajasthani thali, North Indian, and Continental cuisine.",
   servesCuisine: ["Rajasthani", "North Indian", "Continental", "Multi-Cuisine"],
-  url: "https://www.ummedhaveli.com/hawai-jharokha",
-  image: "https://www.ummedhaveli.com/IMG_7712.jpg",
+  url: `${SITE}/hawai-jharokha`,
+  image: `${SITE}/IMG_7712.jpg`,
   telephone: "+917296812341",
   address: {
     "@type": "PostalAddress",
@@ -113,12 +116,12 @@ export const breadcrumbSchema: WithContext<BreadcrumbList> = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ummedhaveli.com/" },
-    { "@type": "ListItem", position: 2, name: "Rooms & Suites", item: "https://www.ummedhaveli.com/#rooms" },
-    { "@type": "ListItem", position: 3, name: "Facilities", item: "https://www.ummedhaveli.com/#facilities" },
-    { "@type": "ListItem", position: 4, name: "Heritage & Culture", item: "https://www.ummedhaveli.com/#culture" },
-    { "@type": "ListItem", position: 5, name: "Explore Jaipur", item: "https://www.ummedhaveli.com/#explore" },
-    { "@type": "ListItem", position: 6, name: "Contact & Booking", item: "https://www.ummedhaveli.com/#contact" },
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+    { "@type": "ListItem", position: 2, name: "Rooms & Suites", item: `${SITE}/#rooms` },
+    { "@type": "ListItem", position: 3, name: "Facilities", item: `${SITE}/#facilities` },
+    { "@type": "ListItem", position: 4, name: "Heritage & Culture", item: `${SITE}/#culture` },
+    { "@type": "ListItem", position: 5, name: "Explore Jaipur", item: `${SITE}/#explore` },
+    { "@type": "ListItem", position: 6, name: "Contact & Booking", item: `${SITE}/#contact` },
   ],
 };
 
@@ -126,8 +129,8 @@ export const organizationSchema: WithContext<Organization> = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "The Ummed Haveli",
-  url: "https://www.ummedhaveli.com",
-  logo: "https://www.ummedhaveli.com/logo.jpeg",
+  url: SITE,
+  logo: `${SITE}/logo.jpeg`,
   sameAs: [
     "https://www.instagram.com/the_ummed_haveli/",
     "https://www.facebook.com/theummedhaveli/",

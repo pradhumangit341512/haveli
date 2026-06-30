@@ -243,3 +243,17 @@ const MENU_ORDER = [
 export const menu: MenuCategory[] = MENU_ORDER
   .map((id) => menuRaw.find((c) => c.id === id))
   .filter((c): c is MenuCategory => Boolean(c));
+
+// Fail loudly at build/dev start if MENU_ORDER and menuRaw drift, so a category
+// is never silently dropped from the page.
+if (process.env.NODE_ENV !== "production") {
+  const rawIds = menuRaw.map((c) => c.id);
+  const missing = rawIds.filter((id) => !MENU_ORDER.includes(id));
+  const unknown = MENU_ORDER.filter((id) => !rawIds.includes(id));
+  const duplicates = MENU_ORDER.filter((id, i) => MENU_ORDER.indexOf(id) !== i);
+  if (missing.length || unknown.length || duplicates.length) {
+    throw new Error(
+      `menu.ts MENU_ORDER is out of sync with menuRaw — missing: [${missing}], unknown: [${unknown}], duplicates: [${duplicates}]`
+    );
+  }
+}

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { menu } from "@/data/menu";
+import { env } from "@/lib/env";
 
 export const metadata: Metadata = {
   title: "Hawai Jharokha — Rooftop Restaurant | The Ummed Haveli Jaipur",
   description:
     "Hawai Jharokha, the pure-vegetarian rooftop restaurant at The Ummed Haveli, Jaipur. Authentic Rajasthani thali, North Indian, Continental and multi-cuisine dining with panoramic Jaipur airport and Aravalli views. Open daily.",
-  alternates: { canonical: "https://www.ummedhaveli.com/hawai-jharokha" },
+  alternates: { canonical: `${env.siteUrl}/hawai-jharokha` },
 };
 
 const formatPrice = (n: number) => `₹${n.toLocaleString("en-IN")}`;

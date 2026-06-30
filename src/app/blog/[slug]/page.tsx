@@ -3,6 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blog";
+import { env } from "@/lib/env";
+
+const SITE = env.siteUrl;
+
+// Blog images may be relative ("/foo.png") or absolute (Unsplash); OG and
+// JSON-LD both require absolute URLs.
+const absoluteUrl = (src: string) => (src.startsWith("http") ? src : `${SITE}${src}`);
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -16,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return {};
-  const url = `https://www.ummedhaveli.com/blog/${post.slug}`;
+  const url = `${SITE}/blog/${post.slug}`;
   return {
     title: `${post.title} | The Ummed Haveli Blog`,
     description: post.excerpt,
@@ -26,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.excerpt,
       url,
-      images: [{ url: post.image, alt: post.imageAlt }],
+      images: [{ url: absoluteUrl(post.image), alt: post.imageAlt }],
       publishedTime: post.date,
     },
   };
@@ -42,7 +49,7 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: post.image,
+    image: absoluteUrl(post.image),
     datePublished: post.date,
     dateModified: post.date,
     articleSection: post.category,
@@ -50,9 +57,9 @@ export default async function BlogPostPage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "The Ummed Haveli",
-      logo: { "@type": "ImageObject", url: "https://www.ummedhaveli.com/logo.jpeg" },
+      logo: { "@type": "ImageObject", url: `${SITE}/logo.jpeg` },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.ummedhaveli.com/blog/${post.slug}` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}/blog/${post.slug}` },
   };
 
   return (

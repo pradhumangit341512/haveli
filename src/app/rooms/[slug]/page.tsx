@@ -3,6 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { roomsDetailed } from "@/data/rooms-detailed";
 import RoomGallery from "@/components/rooms/RoomGallery";
+import { env } from "@/lib/env";
+
+const SITE = env.siteUrl;
 
 interface Props { params: Promise<{ slug: string }>; }
 
@@ -17,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${room.name} | The Ummed Haveli Jaipur`,
     description: room.shortDescription,
-    alternates: { canonical: `https://www.ummedhaveli.com/rooms/${room.slug}` },
+    alternates: { canonical: `${SITE}/rooms/${room.slug}` },
   };
 }
 
@@ -31,9 +34,9 @@ export default async function RoomDetailPage({ params }: Props) {
     "@type": "HotelRoom",
     name: room.name,
     description: room.shortDescription,
-    url: `https://www.ummedhaveli.com/rooms/${room.slug}`,
+    url: `${SITE}/rooms/${room.slug}`,
     image: room.images.map((img) =>
-      img.src.startsWith("http") ? img.src : `https://www.ummedhaveli.com${img.src}`
+      img.src.startsWith("http") ? img.src : `${SITE}${img.src}`
     ),
     bed: { "@type": "BedDetails", typeOfBed: room.bedType },
     occupancy: { "@type": "QuantitativeValue", maxValue: room.maxGuests },
@@ -47,7 +50,7 @@ export default async function RoomDetailPage({ params }: Props) {
       price: room.price,
       priceCurrency: "INR",
       availability: "https://schema.org/InStock",
-      url: `https://www.ummedhaveli.com/rooms/${room.slug}`,
+      url: `${SITE}/rooms/${room.slug}`,
     },
   };
 

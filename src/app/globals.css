@@ -743,8 +743,7 @@ section { padding: 100px 40px; }
 .hj-item-price { font-family: 'Cinzel', serif; font-size: 14.5px; color: #8B2020; font-weight: 700; white-space: nowrap; }
 .hj-item-desc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14.5px; color: #7A6450; line-height: 1.5; margin-top: 3px; max-width: 95%; }
 
-.hj-footnote { text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: #8B6A3A; max-width: 620px; margin: 30px auto 0; padding-top: 22px; border-top: 1px dashed rgba(150,119,47,0.45); line-height: 1.6; }
-.hj-footnote { letter-spacing: 0.3px; }
+.hj-footnote { text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: #8B6A3A; max-width: 620px; margin: 30px auto 0; padding-top: 22px; border-top: 1px dashed rgba(150,119,47,0.45); line-height: 1.6; letter-spacing: 0.3px; }
 .hj-cta { text-align: center; margin-top: 56px; }
 .hj-cta-title { font-family: 'Cinzel', serif; font-size: clamp(24px, 3vw, 34px); color: var(--maroon-d); margin-bottom: 12px; }
 .hj-cta-desc { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-m); max-width: 520px; margin: 0 auto 26px; line-height: 1.6; }

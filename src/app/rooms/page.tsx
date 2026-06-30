@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { roomsDetailed } from "@/data/rooms-detailed";
+import { env } from "@/lib/env";
 
 export const metadata: Metadata = {
   title: "Luxury Rooms & Suites | The Ummed Haveli Jaipur",
   description: "Explore our luxury rooms at The Ummed Haveli — the Royal Premium Room and Royal Deluxe Room, each with complimentary breakfast and Wi-Fi.",
-  alternates: { canonical: "https://www.ummedhaveli.com/rooms" },
+  alternates: { canonical: `${env.siteUrl}/rooms` },
 };
 
 export default function RoomsPage() {

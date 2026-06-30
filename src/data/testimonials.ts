@@ -3,8 +3,8 @@ import type { Testimonial } from "@/types";
 export const testimonials: Testimonial[] = [
   {
     stars: 5,
-    text: "We stayed for two nights and honestly didn't want to leave. The staff remembered our names from day one and the rooftop at night, watching the planes come in, was something else. Rooms were clean and the bed was super comfortable. Already planning our next trip.",
-    author: "Rahul & Priya Sharma",
+    text: "Loved every moment at Ummed Haveli. The staff made us feel welcome from check-in to check-out. The peaceful atmosphere, clean rooms, and stunning rooftop make this hotel worth visiting again.",
+    author: "Ranjan Jaiswal ",
     source: "Google Review",
   },
   {
