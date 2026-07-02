@@ -12,8 +12,8 @@ export default function Header() {
   const isHome = pathname === "/";
   // On inner pages the header should always render in its solid state so it
   // stays visually fixed/legible over the page-hero instead of being transparent.
-  const showSolid = scrolled || !isHome;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const showSolid = scrolled || !isHome || mobileOpen;
 
   const resolveHref = (href: string) => {
     if (href.startsWith("#") && !isHome) return `/${href}`;

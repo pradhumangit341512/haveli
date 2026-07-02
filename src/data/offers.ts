@@ -56,7 +56,7 @@ export const offers: Offer[] = [
       
     ],
     validUntil: "2025-12-31",
-    image: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80",
     imageAlt: "Wedding group accommodation at The Ummed Haveli Jaipur",
     badge: "Wedding Special",
     terms: ["Minimum 10 rooms required", "Advance booking 30 days prior", "50% advance payment", "Peak season surcharge may apply (Nov-Feb)"],
