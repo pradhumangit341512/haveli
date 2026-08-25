@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Script from "next/script";
-import { createPaymentOrder, openRazorpayCheckout } from "@/services/payment.service";
+import { createPaymentOrder, openRazorpayCheckout, verifyPayment } from "@/services/payment.service";
 
 interface PaymentButtonProps {
   amount: number;
@@ -31,9 +31,14 @@ export default function PaymentButton({
       openRazorpayCheckout(
         order,
         { name: guestName, phone: guestPhone, email: guestEmail },
-        (response) => {
-          console.log("Payment successful:", response.razorpay_payment_id);
-          onSuccess?.();
+        async (response) => {
+          // Never trust the client callback alone — confirm the signature server-side.
+          const verified = await verifyPayment(response);
+          if (verified) {
+            onSuccess?.();
+          } else {
+            alert("We could not verify your payment. If money was debited, please contact us with your payment reference.");
+          }
         },
         () => {
           alert("Payment could not be initiated. Please try again or contact us directly.");

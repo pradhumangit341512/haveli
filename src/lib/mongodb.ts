@@ -2,12 +2,17 @@ import { MongoClient, Db } from "mongodb";
 
 const DB_NAME = "ummedhaveli";
 
-let cachedClient: MongoClient | null = null;
-let cachedDb: Db | null = null;
+// Cache the connection PROMISE on globalThis. This survives Next.js dev
+// hot-reloads and serverless module re-evaluation (so we reuse one pool instead
+// of leaking a client per reload), and caching the in-flight promise (not just
+// the resolved client) means concurrent first-callers share a single connect().
+const globalForMongo = globalThis as unknown as {
+  _mongoConn?: Promise<{ client: MongoClient; db: Db }>;
+};
 
-export async function connectToDatabase(): Promise<{ client: MongoClient; db: Db }> {
-  if (cachedClient && cachedDb) {
-    return { client: cachedClient, db: cachedDb };
+export function connectToDatabase(): Promise<{ client: MongoClient; db: Db }> {
+  if (globalForMongo._mongoConn) {
+    return globalForMongo._mongoConn;
   }
 
   const uri = process.env.MONGODB_URI;
@@ -22,13 +27,16 @@ export async function connectToDatabase(): Promise<{ client: MongoClient; db: Db
     connectTimeoutMS: 10000,
   });
 
-  await client.connect();
-  const db = client.db(DB_NAME);
+  globalForMongo._mongoConn = client
+    .connect()
+    .then((connected) => ({ client: connected, db: connected.db(DB_NAME) }))
+    .catch((err) => {
+      // Don't cache a failed connection — allow the next call to retry.
+      globalForMongo._mongoConn = undefined;
+      throw err;
+    });
 
-  cachedClient = client;
-  cachedDb = db;
-
-  return { client, db };
+  return globalForMongo._mongoConn;
 }
 
 // Collection helpers

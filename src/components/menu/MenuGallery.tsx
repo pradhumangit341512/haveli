@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 const TOTAL = 12;
 const PAGES = Array.from(
@@ -15,8 +16,14 @@ export default function MenuGallery() {
   const close = useCallback(() => setActive(null), []);
   const go = useCallback((i: number) => setActive(((i % TOTAL) + TOTAL) % TOTAL), []);
 
+  const isOpen = active !== null;
+  const dialogRef = useFocusTrap<HTMLDivElement>(isOpen);
+
+  // Keyed on open/closed (not `active`) so the listener and scroll-lock attach
+  // once per open — not on every page turn. The handler uses functional
+  // updaters, so it never needs the current `active` in its closure.
   useEffect(() => {
-    if (active === null) return;
+    if (!isOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setActive(null);
       else if (e.key === "ArrowRight") setActive((p) => (p === null ? p : (p + 1) % TOTAL));
@@ -28,7 +35,7 @@ export default function MenuGallery() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
-  }, [active]);
+  }, [isOpen]);
 
   return (
     <>
@@ -58,7 +65,15 @@ export default function MenuGallery() {
       </div>
 
       {active !== null && (
-        <div className="menu-lightbox" role="dialog" aria-modal="true" onClick={close}>
+        <div
+          ref={dialogRef}
+          tabIndex={-1}
+          className="menu-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu page viewer"
+          onClick={close}
+        >
           <button className="menu-lb-close" onClick={close} aria-label="Close menu viewer">
             &times;
           </button>
@@ -73,11 +88,19 @@ export default function MenuGallery() {
             &#8249;
           </button>
           <div className="menu-lb-stage" onClick={(e) => e.stopPropagation()}>
+            {/* Raw <img> (not next/image) is intentional: the lightbox shows the
+                full-resolution page scan for zoom. key={active} forces a fresh
+                element per page so the previous page never flashes during
+                prev/next; width/height reserve space to avoid layout shift. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
+              key={active}
               src={PAGES[active]}
               alt={`Hawai Jharokha menu — page ${active + 1}`}
               className="menu-lb-img"
+              width={1488}
+              height={2105}
+              decoding="async"
             />
           </div>
           <button

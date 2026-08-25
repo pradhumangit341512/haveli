@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import DatePicker from "@/components/ui/DatePicker";
+import { toLocalDateStr } from "@/lib/utils";
 
 function getDateString(daysFromNow: number): string {
   const d = new Date();
   d.setDate(d.getDate() + daysFromNow);
-  return d.toISOString().split("T")[0];
+  return toLocalDateStr(d);
 }
 
 export default function BookingBar() {
@@ -24,9 +25,9 @@ export default function BookingBar() {
 
   const handleCheckinChange = (val: string) => {
     setCheckin(val);
-    const next = new Date(val);
+    const next = new Date(val + "T00:00:00");
     next.setDate(next.getDate() + 1);
-    const nextStr = next.toISOString().split("T")[0];
+    const nextStr = toLocalDateStr(next);
     setMinCheckout(nextStr);
     if (checkout <= val) setCheckout(nextStr);
   };

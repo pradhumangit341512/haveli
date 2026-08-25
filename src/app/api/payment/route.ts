@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerEnv } from "@/lib/env";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
   try {
+    if (!rateLimit(`payment:${getClientIp(request)}`, 10, 60_000)) {
+      return NextResponse.json(
+        { success: false, message: "Too many requests. Please try again shortly." },
+        { status: 429 }
+      );
+    }
+
     const { amount, currency = "INR", receipt, notes } = await request.json();
     const { razorpaySecret } = getServerEnv();
     const razorpayKeyId = process.env.RAZORPAY_KEY_ID;
@@ -14,7 +22,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!amount || amount < 100) {
+    // Amount must be a positive integer number of rupees within a sane range.
+    // (Client-supplied; still validate strictly to reject non-numeric, NaN,
+    // fractional, or absurd values before forwarding to Razorpay.)
+    const MIN_AMOUNT = 100; // ₹100
+    const MAX_AMOUNT = 10_00_000; // ₹10,00,000
+    if (
+      typeof amount !== "number" ||
+      !Number.isInteger(amount) ||
+      amount < MIN_AMOUNT ||
+      amount > MAX_AMOUNT
+    ) {
       return NextResponse.json(
         { success: false, message: "Invalid amount" },
         { status: 400 }

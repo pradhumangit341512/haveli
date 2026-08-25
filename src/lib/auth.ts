@@ -2,7 +2,18 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { NextRequest } from "next/server";
 
-const AUTH_SECRET = process.env.AUTH_SECRET || "fallback-secret-change-me";
+// Fail closed: never fall back to a committed/default signing secret. A weak or
+// absent secret means anyone can forge an admin JWT, so we refuse to run without
+// a strong AUTH_SECRET rather than silently signing with a known value.
+const AUTH_SECRET: string = (() => {
+  const secret = process.env.AUTH_SECRET;
+  if (!secret || secret.length < 32) {
+    throw new Error(
+      "AUTH_SECRET is missing or too weak (must be set to a random string of at least 32 characters)."
+    );
+  }
+  return secret;
+})();
 
 export interface AdminUser {
   username: string;

@@ -3,18 +3,45 @@ import { getCollection } from "@/lib/mongodb";
 import { buildWhatsAppBookingUrl } from "@/services/whatsapp.service";
 import { sendBookingNotification } from "@/services/email.service";
 import { sendWhatsAppBookingNotification } from "@/services/callmebot.service";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import type { BookingFormData } from "@/types";
 
 export async function POST(request: NextRequest) {
   try {
-    const data: BookingFormData = await request.json();
+    if (!rateLimit(`booking:${getClientIp(request)}`, 5, 60_000)) {
+      return NextResponse.json(
+        { success: false, message: "Too many requests. Please try again shortly." },
+        { status: 429 }
+      );
+    }
 
-    if (!data.name || !data.phone || !data.checkin || !data.checkout) {
+    const body = (await request.json()) as Partial<Record<keyof BookingFormData, unknown>>;
+
+    // Validate untrusted input rather than trusting the request shape: required
+    // fields must be non-empty strings (rejects objects/nulls reaching Mongo).
+    const isNonEmptyString = (v: unknown): v is string => typeof v === "string" && v.trim() !== "";
+    if (
+      !isNonEmptyString(body.name) ||
+      !isNonEmptyString(body.phone) ||
+      !isNonEmptyString(body.checkin) ||
+      !isNonEmptyString(body.checkout)
+    ) {
       return NextResponse.json(
         { success: false, message: "Missing required fields" },
         { status: 400 }
       );
     }
+
+    // Normalize into a known-good shape; coerce optional fields to strings.
+    const data: BookingFormData = {
+      name: body.name,
+      phone: body.phone,
+      checkin: body.checkin,
+      checkout: body.checkout,
+      room: typeof body.room === "string" ? body.room : "",
+      guests: typeof body.guests === "string" ? body.guests : String(body.guests ?? ""),
+      message: typeof body.message === "string" ? body.message : "",
+    };
 
     // Try to persist to MongoDB, but don't fail the booking if the DB
     // isn't configured or is unreachable — notifications still go out.

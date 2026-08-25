@@ -45,7 +45,11 @@ export async function GET(request: NextRequest) {
       d.setMonth(d.getMonth() - i);
       const monthStr = d.toISOString().slice(0, 7); // YYYY-MM
       const monthLabel = d.toLocaleDateString("en-IN", { month: "short", year: "numeric" });
-      const monthBookings = allBookings.filter((b) => b.createdAt?.toString().startsWith(monthStr));
+      const monthBookings = allBookings.filter((b) => {
+        if (!b.createdAt) return false;
+        const created = new Date(b.createdAt);
+        return !isNaN(created.getTime()) && created.toISOString().slice(0, 7) === monthStr;
+      });
       monthlyRevenue.push({
         month: monthLabel,
         revenue: monthBookings.reduce((sum, b) => sum + (b.totalAmount || 0), 0),

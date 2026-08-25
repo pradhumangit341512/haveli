@@ -17,3 +17,6 @@ next-env.d.ts
 *.HEIC
 *.heic
 public/a.pdf
+
+.DS_Store
+**/.DS_Store

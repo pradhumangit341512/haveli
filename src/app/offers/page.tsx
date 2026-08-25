@@ -23,7 +23,7 @@ export default function OffersPage() {
       <section className="page-section">
         <div className="container">
           {offers.map((offer) => (
-            <div key={offer.slug} className="offer-card">
+            <div key={offer.slug} id={offer.slug} className="offer-card" style={{ scrollMarginTop: 100 }}>
               <div className="offer-card-img-wrap">
                 <Image src={offer.image} alt={offer.imageAlt} fill sizes="(max-width: 1024px) 100vw, 45vw" className="offer-card-img" />
                 {offer.badge && (

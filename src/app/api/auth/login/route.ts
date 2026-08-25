@@ -6,20 +6,29 @@ export async function POST(request: NextRequest) {
   try {
     const { username, password } = await request.json();
 
-    if (!username || !password) {
+    // Require strings — reject objects like {"$ne": null} that would otherwise
+    // reach the Mongo query as operators (NoSQL injection).
+    if (typeof username !== "string" || typeof password !== "string" || !username || !password) {
       return NextResponse.json({ success: false, message: "Missing credentials" }, { status: 400 });
     }
 
     const staff = await getCollection("staff");
     const user = await staff.findOne({ username });
 
-    if (!user) {
+    if (!user || typeof user.passwordHash !== "string") {
       return NextResponse.json({ success: false, message: "Invalid credentials" }, { status: 401 });
     }
 
     const valid = await verifyPassword(password, user.passwordHash);
     if (!valid) {
       return NextResponse.json({ success: false, message: "Invalid credentials" }, { status: 401 });
+    }
+
+    // Validate the stored role against the allowed set before minting a token,
+    // rather than trusting an arbitrary string from the DB document.
+    const ALLOWED_ROLES = ["owner", "manager", "frontdesk"] as const;
+    if (!ALLOWED_ROLES.includes(user.role)) {
+      return NextResponse.json({ success: false, message: "Account role misconfigured" }, { status: 500 });
     }
 
     const token = createToken({ username: user.username, role: user.role });

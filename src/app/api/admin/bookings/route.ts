@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import { getCollection } from "@/lib/mongodb";
 import { authenticateRequest } from "@/lib/auth";
+import { escapeRegex } from "@/lib/utils";
 import { sendStatusChangeEmail } from "@/services/email.service";
 
 // Statuses that occupy a physical room and therefore must not overlap
@@ -71,9 +72,10 @@ export async function GET(request: NextRequest) {
 
     if (status && status !== "all") filter.status = status;
     if (search) {
+      const safe = escapeRegex(search);
       filter.$or = [
-        { name: { $regex: search, $options: "i" } },
-        { phone: { $regex: search, $options: "i" } },
+        { name: { $regex: safe, $options: "i" } },
+        { phone: { $regex: safe, $options: "i" } },
       ];
     }
     if (from || to) {

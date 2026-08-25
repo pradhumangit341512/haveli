@@ -1,6 +1,9 @@
 import type { BookingFormData } from "@/types";
+import { env } from "@/lib/env";
 
-const WHATSAPP_NUMBER = "917296812341";
+// Single source of truth for the public WhatsApp Business number, shared with
+// WhatsAppWidget (both read env.whatsapp) so they can never drift apart.
+const WHATSAPP_NUMBER = env.whatsapp;
 
 export function buildWhatsAppBookingUrl(data: BookingFormData): string {
   const message = [

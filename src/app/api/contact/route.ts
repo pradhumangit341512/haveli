@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
   try {
+    if (!rateLimit(`contact:${getClientIp(request)}`, 5, 60_000)) {
+      return NextResponse.json(
+        { success: false, message: "Too many requests. Please try again shortly." },
+        { status: 429 }
+      );
+    }
+
     const data = await request.json();
 
     if (!data.name || !data.phone) {

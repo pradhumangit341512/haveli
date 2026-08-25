@@ -9,6 +9,7 @@ import { env } from "@/lib/env";
 const SITE = env.siteUrl;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE),
   title: "The Ummed Haveli | A Heritage Hotel At The Airport | Sanganer, Jaipur",
   description:
     "The Ummed Haveli - A heritage hotel near Terminal 1 Airport, Sanganer, Jaipur. Royal heritage rooms, rooftop restaurant with airport view, 5-star facilities. Book direct and save.",

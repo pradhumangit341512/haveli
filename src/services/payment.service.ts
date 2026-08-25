@@ -48,6 +48,23 @@ interface RazorpayResponse {
   razorpay_signature: string;
 }
 
+// Confirms with our server that the Razorpay signature is genuine. Never treat
+// a payment as successful based on the client callback alone.
+export async function verifyPayment(response: RazorpayResponse): Promise<boolean> {
+  try {
+    const res = await fetch("/api/payment/verify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(response),
+    });
+    if (!res.ok) return false;
+    const data = await res.json();
+    return data.verified === true;
+  } catch {
+    return false;
+  }
+}
+
 export function openRazorpayCheckout(
   order: PaymentOrder,
   guestDetails: { name: string; phone: string; email?: string },

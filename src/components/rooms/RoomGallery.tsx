@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 interface GalleryImage {
   src: string;
@@ -13,6 +14,7 @@ export default function RoomGallery({ images }: { images: GalleryImage[] }) {
   const shown = images.slice(0, 6);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  const dialogRef = useFocusTrap<HTMLDivElement>(openIndex !== null);
   const close = useCallback(() => setOpenIndex(null), []);
   const go = useCallback(
     (i: number) => setOpenIndex(((i % shown.length) + shown.length) % shown.length),
@@ -68,7 +70,7 @@ export default function RoomGallery({ images }: { images: GalleryImage[] }) {
       )}
 
       {openIndex !== null && (
-        <div className="rg-lightbox" role="dialog" aria-modal="true" onClick={close}>
+        <div ref={dialogRef} tabIndex={-1} className="rg-lightbox" role="dialog" aria-modal="true" aria-label="Room image viewer" onClick={close}>
           <button type="button" className="rg-close" onClick={close} aria-label="Close">&times;</button>
           {shown.length > 1 && (
             <button type="button" className="rg-nav rg-prev" onClick={(e) => { e.stopPropagation(); go(openIndex - 1); }} aria-label="Previous image">&#8249;</button>

@@ -2,13 +2,14 @@
 
 import { useState, useEffect, type FormEvent } from "react";
 import { buildWhatsAppBookingUrl } from "@/services/whatsapp.service";
+import { toLocalDateStr } from "@/lib/utils";
 import type { BookingFormData } from "@/types";
 import DatePicker from "@/components/ui/DatePicker";
 
 function getDateString(daysFromNow: number): string {
   const d = new Date();
   d.setDate(d.getDate() + daysFromNow);
-  return d.toISOString().split("T")[0];
+  return toLocalDateStr(d);
 }
 
 export default function ContactForm() {
@@ -17,6 +18,7 @@ export default function ContactForm() {
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [minCheckout, setMinCheckout] = useState("");
+  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   useEffect(() => {
     const t = getDateString(0);
@@ -28,9 +30,9 @@ export default function ContactForm() {
 
   const handleCheckinChange = (val: string) => {
     setCheckin(val);
-    const next = new Date(val);
+    const next = new Date(val + "T00:00:00");
     next.setDate(next.getDate() + 1);
-    const nextStr = next.toISOString().split("T")[0];
+    const nextStr = toLocalDateStr(next);
     setMinCheckout(nextStr);
     if (checkout <= val) setCheckout(nextStr);
   };
@@ -68,7 +70,10 @@ export default function ContactForm() {
 
       setStatus("success");
       const url = buildWhatsAppBookingUrl(data);
-      setTimeout(() => { window.open(url, "_blank"); }, 800);
+      setWhatsappUrl(url);
+      // Best-effort auto-open; popup blockers may prevent it, so we also render
+      // a visible WhatsApp link in the success message as a reliable fallback.
+      window.open(url, "_blank");
     } catch {
       setStatus("error");
     }
@@ -147,6 +152,14 @@ export default function ContactForm() {
       {status === "success" && (
         <div id="formSuccess" style={{ display: "block" }} role="alert">
           Your booking request has been sent successfully! Our team will call you within 30 minutes. Padharo Mhare Desh!
+          {whatsappUrl && (
+            <>
+              {" "}
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", fontWeight: 600 }}>
+                Confirm on WhatsApp
+              </a>
+            </>
+          )}
         </div>
       )}
       {status === "error" && (

@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import crypto from "crypto";
 import { getCollection } from "@/lib/mongodb";
 import { hashPassword } from "@/lib/auth";
+
+// Constant-time string comparison to avoid leaking the secret via response timing.
+function safeEqual(a: string, b: string): boolean {
+  const bufA = Buffer.from(a, "utf8");
+  const bufB = Buffer.from(b, "utf8");
+  return bufA.length === bufB.length && crypto.timingSafeEqual(bufA, bufB);
+}
 
 export async function POST(request: NextRequest) {
   const expected = process.env.SEED_SECRET;
@@ -10,7 +18,8 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-  if (request.headers.get("x-seed-secret") !== expected) {
+  const provided = request.headers.get("x-seed-secret");
+  if (!provided || !safeEqual(provided, expected)) {
     return NextResponse.json({ success: false, error: "Forbidden" }, { status: 403 });
   }
 

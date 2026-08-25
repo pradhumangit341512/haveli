@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import { getCollection } from "@/lib/mongodb";
 import { authenticateRequest } from "@/lib/auth";
+import { escapeRegex } from "@/lib/utils";
 
 // GET /api/admin/guests — list guests
 export async function GET(request: NextRequest) {
@@ -15,10 +16,11 @@ export async function GET(request: NextRequest) {
 
     const filter: Record<string, unknown> = {};
     if (search) {
+      const safe = escapeRegex(search);
       filter.$or = [
-        { name: { $regex: search, $options: "i" } },
-        { phone: { $regex: search, $options: "i" } },
-        { email: { $regex: search, $options: "i" } },
+        { name: { $regex: safe, $options: "i" } },
+        { phone: { $regex: safe, $options: "i" } },
+        { email: { $regex: safe, $options: "i" } },
       ];
     }
 
