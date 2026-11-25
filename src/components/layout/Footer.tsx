@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        &copy; {year} The Ummed Haveli. All Rights Reserved.Ummed Singh &bull; A Heritage Hotel At The Airport,
+        &copy; {year} The Ummed Haveli. All Rights Reserved. Ummed Singh &bull; A Heritage Hotel At The Airport,
         Sanganer, Jaipur &bull; Website by <a href="#">Pradhuman Singh</a>
       </div>
     </footer>
